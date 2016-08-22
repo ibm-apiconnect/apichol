@@ -31,15 +31,14 @@ Each directory is in a separate sub-directory. ***Ensure that you're in the sub-
 
 It is recommended that you run through these exercises sequentially since they are progressive with some dependencies. Each exercise should take about 5-10 mins. to complete.
 
-- Exercise 1: [Target the Bluemix/Cloud Foundry Instance](exercises/ex1)
-- Exercise 2: [TBD] (exercises/ex2)
-- Exercise 3: [TBD] (exercises/ex3)
-- Exercise 4: [TBD] (exercises/ex4)
-- Exercise 5: [TBD] (exercises/ex5)
-- Exercise 6: [TBD] (exercises/ex6)
-- Exercise 7: [TBD] (exercises/ex7) 
-- Exercise 8: [TBD] (exercises/ex8) 
-- Exercise 9: [TBD](exercises/ex9)
+- Exercise 1: [Create a Weather API using API Connect on Bluemix](exercises/ex1)
+- Exercise 2: [Download Node.js and the API Connect toolkit](exercises/ex1)
+- Exercise 3: [Plan your APIs and create your OpenAPI specification (Swagger)](exercises/ex1)
+- Exercise 4: [Import Swagger into API Connect toolkit and create models/APIs](exercises/ex1)
+- Exercise 5: [Create a database service on Bluemix. Connect your LoopBack application to your database.](exercises/ex1)
+- Exercise 6: [Test, Explore and Deploy your LoopBack application](exercises/ex1)
+- Exercise 7: [Explore your deployed APIs with the API Manager on Bluemix](exercises/ex1)
+- Exercise 8: [Generate a Developer Portal for your APIs](exercises/ex1)
 
 
 ##More Resources
