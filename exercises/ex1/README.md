@@ -145,10 +145,17 @@ Next we will create a simple `hello-world` project using API Connect.
 
 ### Create a "hello world" API connect project
 
-Create a Loopback application. Pick the defaults for all prompted options.
+Create a Loopback application. Pick the defaults except as noted below.
 
 ```
 apic loopback --name notes
+```
+
+Pick the defaults except for the sample application notes instead of the default option.
+
+```
+? What kind of application do you have in mind? notes (A project containing a basic working example, including a memor
+y database)
 ```
 
 Change to the project directory
@@ -177,6 +184,33 @@ You can try other options as available in the following command
 apic --help
 ```
 
+You can post a note via the following `cURL` command
+
+```
+curl -k -X POST https://localhost:4002/api/Messages -H 'X-IBM-Client-Id: default' -H 'X-IBM-Client-Secret: SECRET' -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "greeting": "Hello World" }' -v 
+```
+
+You should see an output that looks something like below which indicates that a message with an ID of 1 was created.
+
+```
+* Closing connection 0
+{"id":1,"greeting":"Hello World"}
+```
+
+You can retrieve the message via the following command.
+
+```
+curl -k --request GET --url 'https://localhost:4002/api/Messages' --header 'accept: application/json' --header 'content-type: application/json' --header 'x-ibm-client-id: default' --header 'x-ibm-client-secret: SECRET'
+```
+
+You can explore further by invoking the following command
+
+```
+SKIP_LOGIN=true apic edit
+```
+
+This will launch the API connect GUI in the default browser. You will have to override the certificates manually for the API connect product in order to invoke the `cURL` commands. For now, feel free to wander around. We will take a more formal guided tour in the subsequent exercise.
+
 Finally, you can stop the service as below.
 
 ```
@@ -185,7 +219,7 @@ apic stop
 
 Which should show the service being stopped.
 
-You can delete the sub-directory if you prefer.
+You can clean up by deleting the sub-directory if you prefer.
 
 ```
 cd ..
