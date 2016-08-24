@@ -1,6 +1,6 @@
 #API Connect Hands-On Labs
 
-##Exercise 1: Target the IBM Bluemix instance and create a "hello world" API connect project
+##Exercise 1: Target the IBM Bluemix instance and create a sample "hello world" API connect project
 
 ### Prerequisites
 
