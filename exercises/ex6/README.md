@@ -1,195 +1,62 @@
-#API Connect Hands-On Labs
+# API Connect Hands-On Labs
 
-##Exercise 1: Target the IBM Bluemix instance and create a "hello world" API connect project
+## Exercise 6: Create database CRUD APIs with LoopBack models
 
 ### Prerequisites
 
-Make sure you've met the following prerequisites.
+To run through this exercise, you will need to have done the following steps:
 
-**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
+**Prerequisite 1** Installed the API Connect toolkit ([Exercise 2](exercises/ex2))
 
-**Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
+**Prerequisite 2** Generated a LoopBack app ([Exercise 4](exercises/ex4))
 
-**Prerequisite 3**: Installed `npm` and `apic`. Refer to instructions from [https://nodejs.org/en/download/] (https://nodejs.org/en/download/) and [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect) respectively.
+**Prerequisite 3** Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](exercises/ex5))
 
-**Prerequisite 4**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
+### Ensure that you are in the LoopBack application directory
 
-### Ensure that you are in the right sub-directory
-
-Ensure that you are in sub-directory ex1.
+Ensure that you are in the LoopBack directory you created in [Exercise 2](exercises/ex2)
 
 ```
-cd <path-to-hol-folder>/apichol/exercises/ex1
+cd <path-to-loopback-folder>
 ```
 
-### Target the Bluemix instance
+### Launch the API Connect Designer (Developer toolkit)
 
-Target the Bluemix Cloud Foundry instance by substituting the URL with the one provided and use the following command. 
-
-```
-cf api https://api.ng.bluemix.net # to Americas
-```
-**OR**
+The API Connect Designer is a GUI that allows developers to graphically create and manage their APIs. 
 
 ```
-cf api https://api.eu-gb.bluemix.net # to Europe
+apic edit
 ```
 
+After a brief pause, the following message is displayed.
 
-The output for the `cf` CLI should look something like below.
+`Express server listening on http://127.0.0.1:9000`
 
-```
-Setting api endpoint to https://api.ng.bluemix.net...
-OK
+The API Designer opens in your default web browser. If it prompts you to login, use your IBM Bluemix credentials.
 
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-Not logged in. Use 'cf login' to log in.  
-```
+### Create a database connection
 
-Login to the instance as directed.
+Click on the Data Sources tab. Hit the "Add" button, and choose name for your database - "mysql-db".
 
-```
-cf login
-```
+![Creating a database connection](SS1.png)
 
-Substitute the **non-expired** Bluemix account that was created earlier as below.
+In the connector tab, choose "MySQL". It'll prompt you to install the connector; simply follow the prompts.
 
-```
-API endpoint: https://api.ng.bluemix.net
+TODO: Clarify how to find credentials for service on Bluemix.
+Enter the database credentials you noted in [Exercise 5](exercises/ex5). If you need to find them again, simply navigate to your service on Bluemix and find the credentials.
 
-Email> <your IBM ID>
+<SS2>
 
-Password> 
-Authenticating...
-OK
+Hit the Save button on the top-right. This should test your database connection and alert you if your credentials are incorrect or if the connection was unable to be made.
 
-Targeted org raghsrin@us.ibm.com
+### Create Models to work with your database
 
-Targeted space dev
+Create an "Employee" model so that you're able to perform CRUD (Create/Read/Update/Delete) operations against your MySQL database.
 
+<SS3>
 
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev
-```
+That's it! Once a model is created, the APIs to represent that model are automatically generated for you.
 
+### Next steps
 
-List the spaces with the following command
-
-```
-cf spaces
-```
-
-The output will look something line below.
-
-```
-Getting spaces in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
-
-name   
-dev
-```
-
-If there are no space(s) listed, then create a space `dev` with the following command.
-
-```
-cf create-space dev
-```
-
-The output will look something like below.
-
-```
-Creating space dev in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
-OK
-Assigning role SpaceManager to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-Assigning role SpaceDeveloper to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-
-TIP: Use 'cf target -o raghsrin@us.ibm.com -s dev' to target new space
-```
-
-Issue the command as provided in `TIP` above as below to target the newly created space (if required).
-
-```
-cf target -o <your IBM ID> -s dev
-```
-
-The output will look something like below.
-
-```
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev  
-```
-
-List the apps by issuing the following command.
-
-```
-cf apps
-```
-
-The output will look something like below.
-
-```
-Getting apps in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-
-No apps found
-```
-
-Next we will create a simple `hello-world` project using API Connect.
-
-### Create a "hello world" API connect project
-
-Create a Loopback application. Pick the defaults for all prompted options.
-
-```
-apic loopback --name notes
-```
-
-Change to the project directory
-
-```
-cd notes
-```
-
-Start the API connect services locally
-
-```
-apic start
-```
-
-Ensure the service is running via the command
-
-```
-curl -l localhost:4001
-```
-
-Which should display how long the service has been running
-
-You can try other options as available in the following command
-
-```
-apic --help
-```
-
-Finally, you can stop the service as below.
-
-```
-apic stop
-```
-
-Which should show the service being stopped.
-
-You can delete the sub-directory if you prefer.
-
-```
-cd ..
-rm -rf notes
-```
-
-We will dive into API Connect in the subsequent exercises.
+In the next exercise, we will test your new APIs by starting the LoopBack application locally and using an interactive OpenAPI explorer to call your APIs!

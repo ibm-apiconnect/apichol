@@ -35,7 +35,7 @@ It is recommended that you run through these exercises sequentially since they a
 - Exercise 2: [Install Node.js and the API Connect toolkit](exercises/ex1)
 - Exercise 3: [Design your OpenAPI Swagger specification](exercises/ex1)
 - Exercise 4: [Generate a LoopBack application and import your APIs](exercises/ex1)
-- Exercise 5: [Create a database service on Bluemix and connect it to your application.](exercises/ex1)
+- Exercise 5: [Create a database service on Bluemix](exercises/ex1)
 - Exercise 6: [Create database CRUD APIs with LoopBack models](exercises/ex1)
 - Exercise 7: [Test, Explore and Deploy your LoopBack application](exercises/ex1)
 - Exercise 8: [Explore your deployed APIs with the API Manager on Bluemix](exercises/ex1)
