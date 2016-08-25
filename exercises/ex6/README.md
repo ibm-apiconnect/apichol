@@ -43,9 +43,10 @@ Click on the Data Sources tab. Hit the "Add" button, and choose name for your da
 In the connector tab, choose "MySQL". It'll prompt you to install the connector; simply follow the prompts.
 
 TODO: Clarify how to find credentials for service on Bluemix.
+
 Enter the database credentials you noted in [Exercise 5](exercises/ex5). If you need to find them again, simply navigate to your service on Bluemix and find the credentials.
 
-<SS2>
+TODO: Add screenshot. <SS2>
 
 Hit the Save button on the top-right. This should test your database connection and alert you if your credentials are incorrect or if the connection was unable to be made.
 
@@ -53,7 +54,7 @@ Hit the Save button on the top-right. This should test your database connection 
 
 Create an "Employee" model so that you're able to perform CRUD (Create/Read/Update/Delete) operations against your MySQL database.
 
-<SS3>
+TODO: Add screenshot. <SS3>
 
 That's it! Once a model is created, the APIs to represent that model are automatically generated for you.
 
