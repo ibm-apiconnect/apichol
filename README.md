@@ -31,14 +31,15 @@ Each directory is in a separate sub-directory. ***Ensure that you're in the sub-
 
 It is recommended that you run through these exercises sequentially since they are progressive with some dependencies. Each exercise should take about 5-10 mins. to complete.
 
-- Exercise 1: [Download Node.js and the API Connect toolkit](exercises/ex1)
-- Exercise 2: [Create a Weather API using API Connect on Bluemix](exercises/ex1)
-- Exercise 3: [Plan your APIs and create your OpenAPI specification (Swagger)](exercises/ex1)
-- Exercise 4: [Import Swagger into API Connect toolkit and create models/APIs](exercises/ex1)
-- Exercise 5: [Create a database service on Bluemix. Connect your LoopBack application to your database.](exercises/ex1)
-- Exercise 6: [Test, Explore and Deploy your LoopBack application](exercises/ex1)
-- Exercise 7: [Explore your deployed APIs with the API Manager on Bluemix](exercises/ex1)
-- Exercise 8: [Generate a Developer Portal for your APIs](exercises/ex1)
+- Exercise 1: [Create a Weather API using API Connect on Bluemix](exercises/ex1)
+- Exercise 2: [Install Node.js and the API Connect toolkit](exercises/ex1)
+- Exercise 3: [Design your OpenAPI Swagger specification](exercises/ex1)
+- Exercise 4: [Generate a LoopBack application and import your APIs](exercises/ex1)
+- Exercise 5: [Create a database service on Bluemix and connect it to your application.](exercises/ex1)
+- Exercise 6: [Create CRUD APIs to work with your database](exercises/ex1)
+- Exercise 7: [Test, Explore and Deploy your LoopBack application](exercises/ex1)
+- Exercise 8: [Explore your deployed APIs with the API Manager on Bluemix](exercises/ex1)
+- Exercise 9: [Generate a Developer Portal for your APIs](exercises/ex1)
 
 
 ##More Resources
