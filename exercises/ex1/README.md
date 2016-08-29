@@ -1,10 +1,10 @@
 #API Connect Hands-On Labs
 
-##Exercise 1: Target the IBM Bluemix instance and create a sample "hello world" API connect project
+##Exercise 1: Install Node.js, API Connect Toolkit and create a sample "hello world" API connect project
 
 ### Prerequisites
 
-Make sure you've met the following prerequisites.
+If you're working on your own laptop, make sure you've met the following prerequisites (**prerequisites 2-4 may already have been met if you're using a pre-installed laptop. You can verify this by typing `cf` and `apic` commands**).
 
 **Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
 
