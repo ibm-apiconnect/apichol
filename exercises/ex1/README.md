@@ -227,3 +227,7 @@ rm -rf notes
 ```
 
 We will dive into API Connect in the subsequent exercises.
+
+### Summary of Exercise
+
+After installing all the prerequisites, we explored how to use the API connect product locally. Next we will look into how to use the product on Bluemix.

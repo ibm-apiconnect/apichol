@@ -1,195 +1,107 @@
 #API Connect Hands-On Labs
 
-##Exercise 1: Target the IBM Bluemix instance and create a "hello world" API connect project
+##Exercise 2: Create a Weather API using API Connect on Bluemix
 
 ### Prerequisites
 
 Make sure you've met the following prerequisites.
 
-**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
+**Prerequisite 1**: Completed Exercise 1.
 
-**Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
+### Login to Bluemix and instantiate the API Connect Service
 
-**Prerequisite 3**: Installed `npm` and `apic`. Refer to instructions from [https://nodejs.org/en/download/] (https://nodejs.org/en/download/) and [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect) respectively.
+In the previous exercise we looked at how to use loopback framework on the `localhost` which is great for development. In this exercise, we will now look at how to use the API Connect service as a service on Bluemix. The service provides an API connect manager which provides the same tasks that were available via the API Connect GUI locally. 
 
-**Prerequisite 4**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
+The service also enables publication of the APIs to a developer portal which will be covered in a subsequent exercise.
 
-### Ensure that you are in the right sub-directory
+Login to Bluemix by providing the credentials that you used during the registration process.
 
-Ensure that you are in sub-directory ex1.
+<img src="../../images/ex2/LoginBluemix.tiff"  width="400"> 
 
-```
-cd <path-to-hol-folder>/apichol/exercises/ex1
-```
+Once logged in, click on `Catalog` tab.
 
-### Target the Bluemix instance
+<img src="../../images/ex2/BluemixCatalog.tiff"  width="400">
 
-Target the Bluemix Cloud Foundry instance by substituting the URL with the one provided and use the following command. 
+Pick the API Connect service tile
 
-```
-cf api https://api.ng.bluemix.net # to Americas
-```
-**OR**
+<img src="../../images/ex2/APIConnect.tiff"  width="400">
 
-```
-cf api https://api.eu-gb.bluemix.net # to Europe
-```
+Pick the defaults for the service
 
+<img src="../../images/ex2/APIConnectService.tiff"  width="400">
 
-The output for the `cf` CLI should look something like below.
+You will presented tith a Drafts API screen that looks like below.
 
-```
-Setting api endpoint to https://api.ng.bluemix.net...
-OK
+<img src="../../images/ex2/DraftsAPI.tiff"  width="400">
 
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-Not logged in. Use 'cf login' to log in.  
-```
+Click on "Got it" and proceed.
 
-Login to the instance as directed.
+You will be presented with the Drafts screen that looks like below.
 
-```
-cf login
-```
+<img src="../../images/ex2/GettingStarted.tiff"  width="400">
 
-Substitute the **non-expired** Bluemix account that was created earlier as below.
+If you do not have the "Getting Started" window, click on ? and "Turn on Guided Tour" as shown below.
 
-```
-API endpoint: https://api.ng.bluemix.net
+<img src="../../images/ex2/TurnOnGuidedTour.tiff"  width="400">
 
-Email> <your IBM ID>
+We will follow the "Getting Started" tour essentially from now on.
 
-Password> 
-Authenticating...
-OK
+### A tour of the API Connect Manager via the sample Weather API
 
-Targeted org raghsrin@us.ibm.com
+We start off by clicking on "Import API" in the "Getting Started" window and "Import a Sample API" as prompted.
 
-Targeted space dev
+<img src="../../images/ex2/ImportSample.tiff"  width="400">
 
+In the Dialog box shown below pick the "Climbing Weather" project and hit "Import" as shown below.
 
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev
-```
+<img src="../../images/ex2/ImportSampleDialog.tiff"  width="400">
 
+This will prompt you about the "API Editor" as shown below. Hit "Got it!".
 
-List the spaces with the following command
+<img src="../../images/ex2/APIEditor.tiff"  width="400">
 
-```
-cf spaces
-```
+This will bring up the Design view similar to what you saw earlier, this time on Bluemix.
 
-The output will look something line below.
+<img src="../../images/ex2/DesignView.tiff"  width="400">
 
-```
-Getting spaces in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
+Scroll down to the `getWeather` method which looks like below.
 
-name   
-dev
-```
+<img src="../../images/ex2/GetWeather.tiff"  width="400">
 
-If there are no space(s) listed, then create a space `dev` with the following command.
+Click "Generate and Publish" in the "Getting Started" window picking "Generate a Default Product" as shown below.
 
-```
-cf create-space dev
-```
+<img src="../../images/ex2/GenerateDefaultProduct.tiff"  width="400">
 
-The output will look something like below.
+You will see that a default plan will be used and that you will publish the product to the Sandbox catalog. Click on "Generate" as shown below.
 
-```
-Creating space dev in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
-OK
-Assigning role SpaceManager to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-Assigning role SpaceDeveloper to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
+<img src="../../images/ex2/GenerateNewProduct.tiff"  width="400">
 
-TIP: Use 'cf target -o raghsrin@us.ibm.com -s dev' to target new space
-```
+Next, click "Explore" in the "Getting Started" window as shown below.
 
-Issue the command as provided in `TIP` above as below to target the newly created space (if required).
+<img src="../../images/ex2/Explore.tiff"  width="400">
 
-```
-cf target -o <your IBM ID> -s dev
-```
+Pick "Sandbox" as prompted and as whown below.
 
-The output will look something like below.
+<img src="../../images/ex2/ExploreSandbox.tiff"  width="400">
 
-```
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev  
-```
+You will see the sample API as shown below.
 
-List the apps by issuing the following command.
+<img src="../../images/ex2/ClimbingWeatherAPI.tiff"  width="400">
 
-```
-cf apps
-```
+We will invoke the API by providing the following APIs to country code and zip. Feel free to substitute values.
 
-The output will look something like below.
+<img src="../../images/ex2/CountryZip.tiff"  width="400">
 
-```
-Getting apps in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
+If the call succeeds, you should see a response that looks like below with the weather data for the country and zip code.
 
-No apps found
-```
+<img src="../../images/ex2/RequestResponse.tiff"  width="400">
 
-Next we will create a simple `hello-world` project using API Connect.
+You can click "Test" on the "Getting Started" window and finally on "Analytics" which should result in something like below.
 
-### Create a "hello world" API connect project
+<img src="../../images/ex2/Analytics.tiff"  width="400">
 
-Create a Loopback application. Pick the defaults for all prompted options.
+Which should show the usage statistics for the product.
 
-```
-apic loopback --name notes
-```
+### Summary of Exercise
 
-Change to the project directory
-
-```
-cd notes
-```
-
-Start the API connect services locally
-
-```
-apic start
-```
-
-Ensure the service is running via the command
-
-```
-curl -l localhost:4001
-```
-
-Which should display how long the service has been running
-
-You can try other options as available in the following command
-
-```
-apic --help
-```
-
-Finally, you can stop the service as below.
-
-```
-apic stop
-```
-
-Which should show the service being stopped.
-
-You can delete the sub-directory if you prefer.
-
-```
-cd ..
-rm -rf notes
-```
-
-We will dive into API Connect in the subsequent exercises.
+We started with the API connect product locally and looked at how to use the same service on Bluemix via the Sample. In a later exercise, we will publish the product to a developer portal that is an adjunct service with the API connect service on Bluemix.
