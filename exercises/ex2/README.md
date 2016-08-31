@@ -8,11 +8,13 @@ Make sure you've met the following prerequisites.
 
 **Prerequisite 1**: Completed Exercise 1.
 
-### Login to Bluemix and instantiate the API Connect Service
+### Overview
 
 In the previous exercise we looked at how to use loopback framework on the `localhost` which is great for development. In this exercise, we will now look at how to use the API Connect service as a service on Bluemix. The service provides an API connect manager which provides the same tasks that were available via the API Connect GUI locally. 
 
 The service also enables publication of the APIs to a developer portal which will be covered in a subsequent exercise.
+
+### Login to Bluemix and instantiate the API Connect Service
 
 Login to Bluemix by providing the credentials that you used during the registration process.
 

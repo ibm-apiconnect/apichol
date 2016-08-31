@@ -1,195 +1,139 @@
 #API Connect Hands-On Labs
 
-##Exercise 1: Target the IBM Bluemix instance and create a "hello world" API connect project
+##Exercise 9: Generate a Developer Portal for your APIs
 
 ### Prerequisites
 
 Make sure you've met the following prerequisites.
 
-**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
+**Prerequisite 1**: Completed Exercise 2.
 
-**Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
+### Overview
 
-**Prerequisite 3**: Installed `npm` and `apic`. Refer to instructions from [https://nodejs.org/en/download/] (https://nodejs.org/en/download/) and [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect) respectively.
+We will pick up from where we left off at exercise 2. We followed the "Getting Started" tour to use the API Connect manager and invoke the APIs within the API Connect manager.
 
-**Prerequisite 4**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
+In this exercise, we will publish the APIs, with an associated plan and so on to a developer portal which is an adjunct to the Bluemix API Connect service. These APIs can be invoked by any REST-based client.
 
-### Ensure that you are in the right sub-directory
+### Publishing the Sample API to the Developer Portal
 
-Ensure that you are in sub-directory ex1.
+Let's head back to the API Connect Manager on IBM Bluemix and to the sandbox that we finished off in exercise 2 as we see below. You can click on the Dashboard tab on the Bluemix console and then on the API connect service as shown below.
 
-```
-cd <path-to-hol-folder>/apichol/exercises/ex1
-```
+<img src="../../images/ex9/DashboardServices.tiff"  width="400">
 
-### Target the Bluemix instance
+This will bring up the Dashboard for the API Connect manager as shown below.
 
-Target the Bluemix Cloud Foundry instance by substituting the URL with the one provided and use the following command. 
+<img src="../../images/ex9/SandboxCatalog.tiff"  width="400">
 
-```
-cf api https://api.ng.bluemix.net # to Americas
-```
-**OR**
+Select the "Settings" tab, pick "Portal" and pick the "IBM Developer Portal". Finally click Save icon on the top right as shown below.
 
-```
-cf api https://api.eu-gb.bluemix.net # to Europe
-```
+<img src="../../images/ex9/DevPortal.tiff"  width="400">
 
+Wait for the email to arrive that the developer portal is ready as the dialog box below indicates.
 
-The output for the `cf` CLI should look something like below.
+<img src="../../images/ex9/DeveloperPortalDialog.tiff"  width="400">
 
-```
-Setting api endpoint to https://api.ng.bluemix.net...
-OK
+Clicking on the link will take you to the developer portal. Reset the password for `admin` as shown below.
 
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-Not logged in. Use 'cf login' to log in.  
-```
+<img src="../../images/ex9/ResetPassword.tiff"  width="400">
 
-Login to the instance as directed.
+You will see the "Climbing Weather API" as seen below.
 
-```
-cf login
-```
+<img src="../../images/ex9/APIProductsClimbingWeatherAPI.tiff"  width="400">
 
-Substitute the **non-expired** Bluemix account that was created earlier as below.
+We will next publish this API to Bluemix.
 
-```
-API endpoint: https://api.ng.bluemix.net
+### Publishing the Sample API to Bluemix
 
-Email> <your IBM ID>
+We will go back to the API Connect Manager. If required, re-login to the API Connect Manager as shown below.
 
-Password> 
-Authenticating...
-OK
+<img src="../../images/ex9/APIConnectLogin.tiff"  width="400">
 
-Targeted org raghsrin@us.ibm.com
+In the API Connect Manager on Bluemix click on "Developers" in the navigation pane and "Add Bluemix organization" as shown below.
 
-Targeted space dev
+<img src="../../images/ex9/AddBluemixOrg.tiff"  width="400">
 
+Provide the email address substituting the address with your Bluemix email address as shown below.
 
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev
-```
+<img src="../../images/ex9/AddBlueMixOrgDialog.tiff"  width="400">
 
+Select the Bluemix org and hit "Confirm" as shown below.
 
-List the spaces with the following command
+<img src="../../images/ex9/SelectOrgDialog.tiff"  width="400">
 
-```
-cf spaces
-```
+Now back in the API Connect Manager click on the "Products" tab and click on "..." tab which should bring up the popup menu as shown below and clik on "Edit visibility".
 
-The output will look something line below.
+<img src="../../images/ex9/EditVisibilityMenu.tiff"  width="400">
 
-```
-Getting spaces in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
+Change the visibility to "Custom" and add the organization and Bluemix. Finally hit "Republish" as shown below.
 
-name   
-dev
-```
+<img src="../../images/ex9/Republish.tiff"  width="400">
 
-If there are no space(s) listed, then create a space `dev` with the following command.
+The Climbing Weather API product is displayed in the Explore APIs tab of the API Connect Dashboard. If you click, Climbing Weather App 1.0.0 it will take you to the API in the Developer Portal.
 
-```
-cf create-space dev
-```
+### Registering an app for the sample API in the Developer Portal
 
-The output will look something like below.
+Back in the Developer Portal logout from admin as shown below.
 
-```
-Creating space dev in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
-OK
-Assigning role SpaceManager to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-Assigning role SpaceDeveloper to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
+<img src="../../images/ex9/LogoutAdmin.tiff"  width="400">
 
-TIP: Use 'cf target -o raghsrin@us.ibm.com -s dev' to target new space
-```
+Click on "Create an account" as shown below.
 
-Issue the command as provided in `TIP` above as below to target the newly created space (if required).
+<img src="../../images/ex9/CreateAnAccount.tiff"  width="400">
 
-```
-cf target -o <your IBM ID> -s dev
-```
+Complete the form and ensure that you use a different email address.
 
-The output will look something like below.
+You should see an account ativation complete as shown below.
 
-```
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev  
-```
+<img src="../../images/ex9/AcountActivation.tiff"  width="400">
 
-List the apps by issuing the following command.
+Login with the account which will bring up the portal as below.
 
-```
-cf apps
-```
+<img src="../../images/ex9/UserLogin.tiff"  width="400">
 
-The output will look something like below.
+Click the API Products and Climbing Weather API. You can see that Climbing Weather API belongs to a default Plan with a rate limit of 100 calls per minute as shown below.
 
-```
-Getting apps in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
+<img src="../../images/ex9/Plans.tiff"  width="400">
 
-No apps found
-```
+Click on the "Climbing Weather API 1.0.0" tab as shown below.
 
-Next we will create a simple `hello-world` project using API Connect.
+<img src="../../images/ex9/ClimbingWeatherAPIPortal.tiff"  width="400">
 
-### Create a "hello world" API connect project
+Click on the "Apps"navigation pane of the Developer Portal, click "Register a new Application" as shown below.
 
-Create a Loopback application. Pick the defaults for all prompted options.
+<img src="../../images/ex9/RegisterNewApplication.tiff"  width="400">
 
-```
-apic loopback --name notes
-```
+Fill in the details and hit "Submit".
 
-Change to the project directory
+<img src="../../images/ex9/RegisterNewApplicationFilled.tiff"  width="400">
 
-```
-cd notes
-```
+Click Show to display the "**Client secret**" that we will use subsequently as shown below.
 
-Start the API connect services locally
+<img src="../../images/ex9/ClientSecret.tiff"  width="400">
 
-```
-apic start
-```
+Click "API Products" and the "Climbing Weather API" as shown below.
 
-Ensure the service is running via the command
+<img src="../../images/ex9/ClimbingWeatherProduct.tiff"  width="400">
 
-```
-curl -l localhost:4001
-```
+The details of the Plan that is named Default Plan are displayed. Click "Subscribe" as shown below.
 
-Which should display how long the service has been running
+<img src="../../images/ex9/Subscribe.tiff"  width="400">
 
-You can try other options as available in the following command
+This will bring up a dialog box. Click on "Subscribe" as shown below.
 
-```
-apic --help
-```
+<img src="../../images/ex9/SubscribeWeatherApp.tiff"  width="400">
 
-Finally, you can stop the service as below.
+You have registered to the Climbing Weather App application and subscribed it to a Plan.
 
-```
-apic stop
-```
+### Testing the Climbing Weather API in the Developer Portal
 
-Which should show the service being stopped.
+Back in the Developer Portal, In the left navigation pane, click Climbing Weather API. In the "Try this operation" section of the console, ensure that the Weather App application is selected and enter the parameters as shown below including the "Client secret" that was noted from the earlier step and click "Call Operation".
 
-You can delete the sub-directory if you prefer.
+<img src="../../images/ex9/CallingClimbingWeatherAPI.tiff"  width="400">
 
-```
-cd ..
-rm -rf notes
-```
+That should provide a response which is shown below.
 
-We will dive into API Connect in the subsequent exercises.
+<img src="../../images/ex9/ClimbingWeatherAPIRequestResponse.tiff"  width="400">
+
+### Summary of Exercise
+
+We started with the API connect product locally in exercise 1 and looked at how to use the same service on Bluemix via the Sample in exercise 2. In this exercise, we published the product to a developer portal that is an adjunct service with the API connect service on Bluemix.

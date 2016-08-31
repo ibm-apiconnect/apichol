@@ -22,6 +22,10 @@ Ensure that you are in sub-directory ex1.
 cd <path-to-hol-folder>/apichol/exercises/ex1
 ```
 
+### Overview
+
+We will target a Bluemix Cloud Foundry instance using the Bluemix ID created and look at the API Connect service locally.
+
 ### Target the Bluemix instance
 
 Target the Bluemix Cloud Foundry instance by substituting the URL with the one provided and use the following command. 
@@ -230,4 +234,4 @@ We will dive into API Connect in the subsequent exercises.
 
 ### Summary of Exercise
 
-After installing all the prerequisites, we explored how to use the API connect product locally. Next we will look into how to use the product on Bluemix.
+After installing all the prerequisites, we explored how to target a Cloud Foundry instance and use the API connect product locally. Next we will look into how to use the product on Bluemix.
