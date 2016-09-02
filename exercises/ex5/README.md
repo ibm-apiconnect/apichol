@@ -46,7 +46,7 @@ IBM Bluemix offers a wide array of data service options that are just a few clic
 
 ![Service catalog](../../images/ex5/datasvc_catalog.png)
 
-For this exercise, we'll be instantiating a MySQL database service maintained by the community and offered as a part of the base Cloud Foundry platform.  MySQL is an open-source relational database management system (RDBMS).
+For this exercise, we'll be instantiating a MySQL database service offered on the Bluemix platform.  MySQL is an open-source relational database management system (RDBMS).
 
 Creating a Bluemix service instantiation requires input of three fields:
 
