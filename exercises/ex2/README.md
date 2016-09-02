@@ -98,6 +98,10 @@ If the call succeeds, you should see a response that looks like below with the w
 
 <img src="../../images/ex2/RequestResponse.jpeg"  width="400">
 
+If the call fails as shown below, click on the link and accept the certificates (we're overriding the Cross-Origin Resource Sharing - CORS error)
+
+<img src="../../images/ex2/CORSError.jpeg"  width="400">
+
 You can click "Test" on the "Getting Started" window and finally on "Analytics" which should result in something like below.
 
 <img src="../../images/ex2/Analytics.jpeg"  width="400">
