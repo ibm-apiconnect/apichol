@@ -1,6 +1,6 @@
 #API Connect Hands-On Labs
 
-##Exercise 1: Target the IBM Bluemix instance and create a "hello world" API connect project
+##Exercise 5: Create a database service on Bluemix
 
 ### Prerequisites
 
@@ -16,180 +16,162 @@ Make sure you've met the following prerequisites.
 
 ### Ensure that you are in the right sub-directory
 
-Ensure that you are in sub-directory ex1.
+Ensure that you are in sub-directory ex5.
 
 ```
-cd <path-to-hol-folder>/apichol/exercises/ex1
+cd <path-to-hol-folder>/apichol/exercises/ex5
 ```
 
-### Target the Bluemix instance
+### Verify your Target within Bluemix instance
 
-Target the Bluemix Cloud Foundry instance by substituting the URL with the one provided and use the following command. 
-
-```
-cf api https://api.ng.bluemix.net # to Americas
-```
-**OR**
+Verify your Target within Bluemix Cloud Foundry instance by issuing the following command. 
 
 ```
-cf api https://api.eu-gb.bluemix.net # to Europe
+cf target
+```
+
+The output for the `cf` CLI should look something like below.
+
+```
+
+API endpoint:   https://api.ng.bluemix.net (API version: 2.54.0)
+User:           <bluemix_email_id>
+Org:            <bluemix_email_id>
+Space:          dev
+ 
+```
+
+### Creating a database service
+IBM Bluemix offers a wide array of data service options that are just a few clicks/commands away.
+
+![Service catalog](../../images/ex5/datasvc_catalog.png)
+
+For this exercise, we'll be instantiating a MySQL database service maintained by the community and offered as a part of the base Cloud Foundry platform.  MySQL is an open-source relational database management system (RDBMS).
+
+Creating a Bluemix service instantiation requires input of three fields:
+
+- Name of the service offering
+- Plan of the service offering
+- Instance name of your instantiated service
+
+**Name of the service offering**:<br/>
+Defined by the service provider when registering their service with Bluemix.
+
+**Plan of the service offering**:<br/>
+Defined by the service provider based on varying levels of quality of service (QoS), resource throttling and price.
+
+**Instance name**:<br/>
+Defined by the user.  This will be the canonical name that uniquely identifies this service instantiation.  It is typically used when defining service dependencies within application manifests or Bluemix CLI operations such as service binding.
+
+####Identifying the name and plan of a service offering
+
+Cloud Foundry offers a listing of the entire service marketplace registered within the platform.  Beware, this can be a **lengthy query** (~2-5 mins) proportional to the size of the platform catalog. For the curious, the command is:   
+
+```
+cf marketplace
+```
+
+The output for the `cf` CLI would look something like below.
+
+```
+Getting services from marketplace in org xxx@xxx.xxx / space dev as xxx@xxx.xxx ...
+OK
+
+service                                          plans                                                                                                                                                                                                                                                                                                                                     description
+APIConnect                                       Essentials, Professional*, Enterprise*, Professional 5M*, Enterprise 25M*                                                                                                                                                                                                                                                                 Create, manage, enforce, and run APIs.
+AdvancedMobileAccess                             Gold*, Bronze*                                                                                                                                                                                                                                                                                                                            Finely tune mobile apps with operational analytics, and ensure communications with back end systems are secure.
+Application Security on Cloud                    free, standard*                                                                                                                                                                                                                                                                                                                           A robust, practical security vulnerability assessment for your web applications.
+Auto-Scaling                                     free                                                                                                                                                                                                                                                                                                                                      Automatically increase or decrease the number of application instances based on a policy you define.
+
+[....] 
+```
+As you can see, the first two columns contain 2 out of 3 of parameters that we need.  In particular, there are two MySQL services of interest to us:
+
+- **Cleardb**
+- **MySQL** 
+
+While the marketplace command contains both names and plans, there may be times where you know the name of the service and simply want to enumerate the latest plan options.  If so, there is a convenient shortcut CLI command to discover only the associated plans.<br/>
+**Nota Bene:  This convenience does not extend to services designated as experimental within the catalog**
+
+For example, the command to discover the Cleardb plans are:
+
+```
+cf marketplace -s cleardb
 ```
 
 
 The output for the `cf` CLI should look something like below.
 
 ```
-Setting api endpoint to https://api.ng.bluemix.net...
+Getting service plan information for service cleardb as xxx@xxx.xxx...
 OK
 
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-Not logged in. Use 'cf login' to log in.  
+service plan   description                                                                     free or paid
+spark          Great for getting started and developing your apps                              free
+boost          Best for light production or staging your applications                          paid
+shock          Designed for apps where you need real MySQL reliability, power and throughput   paid
+amp            For apps with moderate data requirements                                        paid
 ```
 
-Login to the instance as directed.
+Based on the above commands, we can now discern the key details for both MySQL service providers:
+
+|  Service Provider 	| Service Name 	| Service Plan (Free) 	|
+|:-----------------:	|:------------:	|:-------------------:	|
+|      ClearDB      	|    cleardb   	|        spark        	|
+| MySQL (Community) 	|     mysql    	|         100         	|
+
+We are now ready to create our MySQL service instance by issuing either of the following commands: 
 
 ```
-cf login
+cf create-service cleardb spark workshopmysql
 ```
 
-Substitute the **non-expired** Bluemix account that was created earlier as below.
+**OR**
 
 ```
-API endpoint: https://api.ng.bluemix.net
+cf create-service mysql 100 workshopmysql
+```
 
-Email> <your IBM ID>
+The output for the `cf` CLI should look something like below.
 
-Password> 
-Authenticating...
+```
+Creating service instance workshopmysql in org xxx@xxx.xxx / space dev as xxx@xxx.xxx...
 OK
+``` 
 
-Targeted org raghsrin@us.ibm.com
-
-Targeted space dev
-
-
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev
-```
-
-
-List the spaces with the following command
+Congratulations, you now have a MySQL service instance exclusively for your application and API development needs.  At this point, you may be wondering about discovery of connection information to access this service.  We need to create a service key credential set for our newly minted MySQL service. We can do this by issuing the following command:
 
 ```
-cf spaces
+cf create-service-key workshopmysql connectioncreds
 ```
 
-The output will look something line below.
+The output for the `cf` CLI should look something like below.
 
 ```
-Getting spaces in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
-
-name   
-dev
-```
-
-If there are no space(s) listed, then create a space `dev` with the following command.
-
-```
-cf create-space dev
-```
-
-The output will look something like below.
-
-```
-Creating space dev in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
+Creating service key connectioncreds for service instance workshopmysql as xxx@xxx.xxx...
 OK
-Assigning role SpaceManager to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-Assigning role SpaceDeveloper to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
+``` 
 
-TIP: Use 'cf target -o raghsrin@us.ibm.com -s dev' to target new space
-```
-
-Issue the command as provided in `TIP` above as below to target the newly created space (if required).
+Finally, we can examine the generated credentials by executing the following command:
 
 ```
-cf target -o <your IBM ID> -s dev
+cf service-key workshopmysql connectioncreds
 ```
 
-The output will look something like below.
+The output for the `cf` CLI should look something like below.
 
 ```
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev  
+{
+ "host": "192.168.255.255",
+ "hostname": "192.168.255.255",
+ "name": "dc9caxxxxxxxxxxxxxxxxxxe4ec",
+ "password": "p9c#&$^&*@TN",
+ "port": 3307,
+ "uri": "mysql://uevWFw0FThyL9:p9c#&$^&*@TN@192.168.255.255:3307/dc9caxxxxxxxxxxxxxxxxxxe4ec",
+ "user": "uevWFw0FThyL9",
+ "username": "uevWFw0FThyL9"
+}
 ```
-
-List the apps by issuing the following command.
-
-```
-cf apps
-```
-
-The output will look something like below.
-
-```
-Getting apps in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-
-No apps found
-```
-
-Next we will create a simple `hello-world` project using API Connect.
-
-### Create a "hello world" API connect project
-
-Create a Loopback application. Pick the defaults for all prompted options.
-
-```
-apic loopback --name notes
-```
-
-Change to the project directory
-
-```
-cd notes
-```
-
-Start the API connect services locally
-
-```
-apic start
-```
-
-Ensure the service is running via the command
-
-```
-curl -l localhost:4001
-```
-
-Which should display how long the service has been running
-
-You can try other options as available in the following command
-
-```
-apic --help
-```
-
-Finally, you can stop the service as below.
-
-```
-apic stop
-```
-
-Which should show the service being stopped.
-
-You can delete the sub-directory if you prefer.
-
-```
-cd ..
-rm -rf notes
-```
-
-We will dive into API Connect in the subsequent exercises.
+Armed with this connection information, we are now able to interact with our new MySQL server.
+ 
+In the next exercise, we will dive into creation of database CRUD APIs.
