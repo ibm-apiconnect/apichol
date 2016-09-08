@@ -6,15 +6,15 @@
 
 To run through this exercise, you will need to have done the following steps:
 
-**Prerequisite 1** Installed the API Connect toolkit ([Exercise 2](exercises/ex2))
+**Prerequisite 1** Installed the API Connect toolkit ([Exercise 2](../exercises/ex2))
 
-**Prerequisite 2** Generated a LoopBack app ([Exercise 4](exercises/ex4))
+**Prerequisite 2** Generated a LoopBack app ([Exercise 4](../exercises/ex4))
 
-**Prerequisite 3** Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](exercises/ex5))
+**Prerequisite 3** Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../exercises/ex5))
 
 ### Ensure that you are in the LoopBack application directory
 
-Ensure that you are in the LoopBack directory you created in [Exercise 2](exercises/ex2)
+Ensure that you are in the LoopBack directory you created in [Exercise 4](../exercises/ex4)
 
 ```
 cd <path-to-loopback-folder>
@@ -44,7 +44,7 @@ In the connector tab, choose "MySQL". It'll prompt you to install the connector;
 
 TODO: Clarify how to find credentials for service on Bluemix.
 
-Enter the database credentials you noted in [Exercise 5](exercises/ex5). If you need to find them again, simply navigate to your service on Bluemix and find the credentials.
+Enter the database credentials you noted in [Exercise 5](../exercises/ex5). If you need to find them again, simply navigate to your service on Bluemix and find the credentials.
 
 TODO: Add screenshot. <SS2>
 
@@ -60,4 +60,6 @@ That's it! Once a model is created, the APIs to represent that model are automat
 
 ### Next steps
 
-In the next exercise, we will test your new APIs by starting the LoopBack application locally and using an interactive OpenAPI explorer to call your APIs!
+In the next exercise, we will test your new APIs by starting the LoopBack application locally and use an interactive OpenAPI explorer to call your APIs!
+
+Next up, Exercise 7: [Test, Explore and Deploy your LoopBack application](../exercises/ex7)

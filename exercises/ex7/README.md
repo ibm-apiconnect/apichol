@@ -6,7 +6,7 @@
 
 To run through this exercise, you will need to have done the following steps:
 
-**Prerequisite 1** Installed the API Connect toolkit ([Exercise 2](../exercises/ex2))
+**Prerequisite 1** Installed the API Connect toolkit ([Exercise 1](../exercises/ex1))
 
 **Prerequisite 2** Generated a LoopBack app ([Exercise 4](../exercises/ex4))
 
@@ -48,18 +48,38 @@ Now that the application is running, let's try calling some of the APIs!
 
 On the top right of the `API Designer`, hit the `Explore` button. This takes you to an API Explorer, allowing you to explore the APIs defined in your generated Swagger doc.
 
-Along the left side, you should see a number of operations based on the name of the Model you created in [exercise 6](../exercises/ex6). Let's try calling a series of these operations.
+Along the left side, you should see a number of operations for the `Employee` model you created in [exercise 6](../exercises/ex6). Let's try calling a series of these operations.
 
-#### GET $model
+#### GET /Employees
 
-Navigate to the operation `GET /$model`. Along the right side, there is a black section which shows you how to call that operation, provides boiler code, and has a button "Call Operation". Hit the button to call your GET operation.
+Navigate to the operation `GET /Employees`. Along the right side, there is a black section which shows you how to call that operation, provides boiler code, and has a button "Call Operation". Hit the button to call your GET operation.
 
 You should see a `200 OK` response, along with an empty array in the response body: `[]`.  This is because you haven't stored anything in the database yet!
 
-#### POST $model
+#### POST /Employees
 
-Navigate to the operation `POST /$model` to create a database entry. Scroll down to the "Call Operation" button, enter some data into the Paramters section (or use the `Generate` button), and hit call Operation.
+Navigate to the operation `POST /$Employees` to create a database entry. Scroll down to the "Call Operation" button, enter some data into the Paramters section (or use the `Generate` button), and hit call Operation.
 
 You should see a `200 OK` response, as well as a response body indicating that the database update has succeeded.
 
-TODO: Add pics and finish deploy section
+### Deploy your APIs to IBM Bluemix
+
+Once you're happy with the APIs you've created, you can push them the Bluemix, IBM's PaaS (Platform as a Service).  Bluemix will host your APIs and allow you to graphically manage them.
+
+Start by hitting the Publish button on the top right of the API Designer.
+
+Choose `Add and Manage Targets` and `Add IBM Bluemix target`.
+
+Ensure that the organization is correct -- it should correspond to your Bluemix email.  Choose the `Sandbox` catalog.
+
+Type a new application name: `EmployeeAPI`. Then hit the `(+)` button, and hit `Save`.
+
+You've now created a publish target; deploy to it by hitting the `Publish` button and choosing the target you just created.
+
+Choose both `Publish Application` and `Stage or Publish` products. Hit `Publish`. That's it! Your APIs are now securely pushed to the cloud.
+
+### Next steps
+
+In the next two exercises, we'll explain how you can test your APIs and create a developer portal so others can consume your APIs.
+
+Next up, Exercise 8: [Explore your deployed APIs with the API Manager on Bluemix](../exercises/ex8)
