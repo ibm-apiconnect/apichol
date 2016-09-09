@@ -38,11 +38,11 @@ The API Designer opens in your default web browser. If it prompts you to login, 
 
 Click on the Data Sources tab. Hit the "Add" button, and choose name for your database - "mysql-db".
 
-![Creating a database connection](SS1.png)
+<img src="SS1.png"  width="400">
 
 In the connector tab, choose "MySQL". It'll prompt you to install the connector; simply follow the prompts.
 
-![Install Connector](SS2.png)
+<img src="SS2.png"  width="400">
 
 Enter the database credentials you noted in [Exercise 5](../ex5). Enter the `uri` credential into the `url` field and your database name, `employees` into the `Database` field. 
 
