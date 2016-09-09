@@ -1,195 +1,81 @@
 #API Connect Hands-On Labs
 
-##Exercise 1: Target the IBM Bluemix instance and create a "hello world" API connect project
+##Exercise 3: Design your OpenAPI Swagger specification
 
 ### Prerequisites
 
 Make sure you've met the following prerequisites.
 
-**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
-
-**Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
-
-**Prerequisite 3**: Installed `npm` and `apic`. Refer to instructions from [https://nodejs.org/en/download/] (https://nodejs.org/en/download/) and [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect) respectively.
-
-**Prerequisite 4**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
+**Prerequisite 1**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
 
 ### Ensure that you are in the right sub-directory
 
-Ensure that you are in sub-directory ex1.
+Ensure that you are in sub-directory ex3.
 
 ```
-cd <path-to-hol-folder>/apichol/exercises/ex1
+cd <path-to-hol-folder>/apichol/exercises/ex3
 ```
 
-### Target the Bluemix instance
+### Goals
 
-Target the Bluemix Cloud Foundry instance by substituting the URL with the one provided and use the following command. 
+For this exercise, we'll:
 
-```
-cf api https://api.ng.bluemix.net # to Americas
-```
-**OR**
+1. Learn about the OpenAPI Specification (Swagger Specification) 2.0 and its components
+2. Learn how to use Swagger Editor to design and modify an existing Swagger JSON specification of an API
 
-```
-cf api https://api.eu-gb.bluemix.net # to Europe
-```
+### [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (Current Version: 2.0)
+The Open API Specification (formerly known as the Swagger specification) is the industry standard for defining REST APIs.  The goal of The OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
 
+<blockquote><b style="color:maroon">OpenAPI removes the guesswork in calling the service</b></blockquote>
 
-The output for the `cf` CLI should look something like below.
+#### [OpenAPI Components](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
 
-```
-Setting api endpoint to https://api.ng.bluemix.net...
-OK
+- FORMAT:  The files describing the RESTful API in accordance with the Swagger specification are represented as **JSON objects** and conform to the JSON standards. YAML, being a superset of JSON, can be used as well to represent a Swagger specification file.
+- BENEFITS:  With a OpenAPI specifcation, you'll be able to generate client libraries in lots of runtime languages, generate server stubs, import these definitions into API management tools such as Bluemix APIConnect and use tools to verify conformance. 
 
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-Not logged in. Use 'cf login' to log in.  
-```
+### [Swagger Editor](http://editor.swagger.io/#/)
+Swagger Editor is a handy open source web application that lets you quickly edit OpenAPI Swagger specifications in YAML or JSON.  You can import or create custom specifications within a browser.  We'll use this hosted editor and a Swagger JSON specification **macreduce.mybluemix.net.json** located within the ex3 sub-directory to illustrate the use of the editor and how it can be used to design/modify a Swagger specification.
 
-Login to the instance as directed.
+#### Exploring an OpenAPI (Swagger) 2.0 Specification
 
-```
-cf login
-```
+1.  Browse to [Swagger Editor](http://editor.swagger.io/#/) and click on the File menu choice **Import File...** .  You will select the macreduce.mybluemix.net.yaml file found within your ex3 sub-directory.     <br/><br/>     ![swagger](../../images/ex3/swaggerspec_import.png)
 
-Substitute the **non-expired** Bluemix account that was created earlier as below.
+    ![swagger](../../images/ex3/importfile.png) 
+2.  After import, you should see a split pane view with the raw text Swagger spec on the left and a rendered view on the right.     <br/>     ![swagger](../../images/ex3/macreduce.png) 
+3.  We will now make a modification to the existing swagger specification.  Browse to the section of the spec that looks similiar to: <pre>
+  '/mac/{macId}':
+      get:
+        summary: Retrieves a Mac document
+        responses:
+          '200':
+            description: Mac document fetched successfully
+        parameters:
+          - in: path
+            name: macId
+[...]
+</pre> We will add an expected response to document the API's behavior when attempting to fetch a non-existent macId resource.  Add two lines just above the parameters section so that it now looks like this: <pre>
+  '/mac/{macId}':
+      get:
+        summary: Retrieves a Mac document
+        responses:
+          '200':
+            description: Mac document fetched successfully
+          '404':
+            description: Mac document not found
+        parameters:
+          - in: path
+            name: macId
+[...]
+</pre>
+  The specification provides a wide variety of data elements to facilitate describing your API set.  As you inspect your OpenAPI specification file, some important elements to consider include: 
 
-```
-API endpoint: https://api.ng.bluemix.net
+  -  method types (get, post, delete, ...)
+  -  responses (200, 400, 404, ...)
+  -  parameters
+  -  paths
+  -  content-types (application/json, application/xml, ...)
 
-Email> <your IBM ID>
+4.  Click on the File menu choice **Download JSON** to obtain a local copy of your newly modified OpenAPI Swagger 2.0 specification.     <br/><br/>     ![swagger](../../images/ex3/downloadjson.png) 
+5.  As you can see, Swagger Editor is a great tool for modifying existing OpenAPI specifications and/or creating brand new specifications.
 
-Password> 
-Authenticating...
-OK
-
-Targeted org raghsrin@us.ibm.com
-
-Targeted space dev
-
-
-                   
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev
-```
-
-
-List the spaces with the following command
-
-```
-cf spaces
-```
-
-The output will look something line below.
-
-```
-Getting spaces in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
-
-name   
-dev
-```
-
-If there are no space(s) listed, then create a space `dev` with the following command.
-
-```
-cf create-space dev
-```
-
-The output will look something like below.
-
-```
-Creating space dev in org raghsrin@us.ibm.com as raghsrin@us.ibm.com...
-OK
-Assigning role SpaceManager to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-Assigning role SpaceDeveloper to user raghsrin@us.ibm.com in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-
-TIP: Use 'cf target -o raghsrin@us.ibm.com -s dev' to target new space
-```
-
-Issue the command as provided in `TIP` above as below to target the newly created space (if required).
-
-```
-cf target -o <your IBM ID> -s dev
-```
-
-The output will look something like below.
-
-```
-API endpoint:   https://api.ng.bluemix.net (API version: 2.27.0)   
-User:           raghsrin@us.ibm.com   
-Org:            raghsrin@us.ibm.com   
-Space:          dev  
-```
-
-List the apps by issuing the following command.
-
-```
-cf apps
-```
-
-The output will look something like below.
-
-```
-Getting apps in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
-OK
-
-No apps found
-```
-
-Next we will create a simple `hello-world` project using API Connect.
-
-### Create a "hello world" API connect project
-
-Create a Loopback application. Pick the defaults for all prompted options.
-
-```
-apic loopback --name notes
-```
-
-Change to the project directory
-
-```
-cd notes
-```
-
-Start the API connect services locally
-
-```
-apic start
-```
-
-Ensure the service is running via the command
-
-```
-curl -l localhost:4001
-```
-
-Which should display how long the service has been running
-
-You can try other options as available in the following command
-
-```
-apic --help
-```
-
-Finally, you can stop the service as below.
-
-```
-apic stop
-```
-
-Which should show the service being stopped.
-
-You can delete the sub-directory if you prefer.
-
-```
-cd ..
-rm -rf notes
-```
-
-We will dive into API Connect in the subsequent exercises.
+Next, we'll create a Loopback Application and pull in these APIs.

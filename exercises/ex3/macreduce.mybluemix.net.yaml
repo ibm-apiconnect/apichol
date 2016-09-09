@@ -1,0 +1,78 @@
+consumes:
+  - application/json
+swagger: '2.0'
+produces:
+  - application/xml
+  - application/json
+basePath: /api/v1
+schemes:
+  - https
+paths:
+  /mac:
+    get:
+      summary: Retrieves one or more mac
+      responses:
+        '200':
+          description: An array of mac
+    post:
+      summary: Stores one or more mac
+      responses:
+        '200':
+          description: operation has been successful
+    delete:
+      summary: Deletes all mac
+      responses:
+        '200':
+          description: operation has been successful
+  '/mac/{macId}':
+    get:
+      summary: Retrieves a Mac document
+      responses:
+        '200':
+          description: Mac document fetched successfully
+      parameters:
+        - in: path
+          name: macId
+          required: true
+          description: ID of the Mac
+          type: string
+          format: objectid
+    patch:
+      summary: Updates a Mac document
+      responses:
+        '200':
+          description: Mac document updated successfully
+      parameters:
+        - in: path
+          name: macId
+          required: true
+          description: ID of the Mac
+          type: string
+          format: objectid
+    delete:
+      summary: Deletes a Mac document
+      responses:
+        '200':
+          description: Mac document deleted successfully
+      parameters:
+        - in: path
+          name: macId
+          required: true
+          description: ID of the Mac
+          type: string
+          format: objectid
+host: macreduce.mybluemix.net
+info:
+  title: Macreduce API
+  description: >-
+    Python-Eve Framework application backend deployed on IBM Bluemix that
+    provides a practical illustration of setting up a python REST API to support
+    mobile workloads and integration with 3rd party API platforms.
+  termsOfService: Have fun and learn!
+  contact:
+    url: 'http://ibm.biz/sanjay_joshi'
+    name: joshisa
+  license:
+    url: 'https://github.com/ibmjstart/bluemix-python-eve-sample/blob/master/LICENSE'
+    name: Apache 2.0
+  version: '1.0'
