@@ -1,0 +1,13 @@
+#!/bin/bash
+j=1
+cd ..
+pandoc -o docs/apichol0.pdf README.md
+for i in $(find exercises -name ex\[0123456789]*)
+do
+  cd $i
+  pandoc -o ../../docs/apichol$j.pdf README.md
+  j=$[$j+1]
+  cd ../..
+done
+cd docs
+"/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" -o apichol.pdf apichol*.pdf
