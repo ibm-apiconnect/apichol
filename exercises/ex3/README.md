@@ -6,7 +6,13 @@
 
 Make sure you've met the following prerequisites.
 
-**Prerequisite 1**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
+**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
+
+**Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
+
+**Prerequisite 3**: Installed `npm` and `apic`. Refer to instructions from [https://nodejs.org/en/download/] (https://nodejs.org/en/download/) and [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect) respectively.
+
+**Prerequisite 4**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
 
 ### Ensure that you are in the right sub-directory
 
@@ -22,6 +28,7 @@ For this exercise, we'll:
 
 1. Learn about the OpenAPI Specification (Swagger Specification) 2.0 and its components
 2. Learn how to use Swagger Editor to design and modify an existing Swagger JSON specification of an API
+3. Learn how to import an OpenAPI Specification into API Designer for further editing
 
 ### [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (Current Version: 2.0)
 The Open API Specification (formerly known as the Swagger specification) is the industry standard for defining REST APIs.  The goal of The OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
@@ -76,6 +83,26 @@ Swagger Editor is a handy open source web application that lets you quickly edit
   -  content-types (application/json, application/xml, ...)
 
 4.  Click on the File menu choice **Download JSON** to obtain a local copy of your newly modified OpenAPI Swagger 2.0 specification.     <br/><br/>     ![swagger](../../images/ex3/downloadjson.png) 
-5.  As you can see, Swagger Editor is a great tool for modifying existing OpenAPI specifications and/or creating brand new specifications.
+5.  As you can see, Swagger Editor is a great tool for modifying existing OpenAPI specifications and/or creating brand new specifications.  
 
-Next, we'll create a Loopback Application and pull in these APIs.
+### [LoopBack API using API Designer](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
+
+To open the API Designer, on the command line enter:
+
+```
+apic edit
+```
+
+This should result in the API Designer opening within your default web browser.
+
+Our next step is to import the OpenAPI specification into API Designer.  To accomplish this, click on the **+ Add** link and select the Import OpenAPI choice
+<br/><br/>
+![importopenapi](../../images/ex3/importopenapi.png)
+
+You will want to browse to the location where you downloaded the swagger.json file created from Swagger editor and click on the **Import** button.
+
+This should cause focus on the API Design tab with various fields populated via data found within the OpenAPI specification file.  Feel free to explore the various section links on the left to get a feel for design options available to you.
+<br/><br/>
+![apidesignview](../../images/ex3/apidesignview.png)
+
+Next, we'll create a Loopback Application against these defined APIs.
