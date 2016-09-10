@@ -1,13 +1,13 @@
 #!/bin/bash
 j=1
 cd ..
-pandoc -o docs/apichol0.pdf README.md
+printf "\pagenumbering{gobble}\n\n" | cat - README.md | pandoc -o docs/apicholex0.pdf
 for i in $(find exercises -name ex\[0123456789]*)
 do
   cd $i
-  pandoc -o ../../docs/apichol$j.pdf README.md
+  printf "\pagenumbering{gobble}\n\n" | cat - README.md | awk '/^\!\[\]/{$0=$0"\n\\\n"}{print}' | pandoc --latex-engine=xelatex -o ../../docs/apicholex$j.pdf 
   j=$[$j+1]
   cd ../..
 done
 cd docs
-"/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" -o apichol.pdf apichol*.pdf
+"/System/Library/Automator/Combine PDF Pages.action/Contents/Resources/join.py" -o apichol.pdf apicholex*.pdf
