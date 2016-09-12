@@ -45,10 +45,12 @@ Swagger Editor is a handy open source web application that lets you quickly edit
 
 #### Exploring an OpenAPI (Swagger) 2.0 Specification
 
-1.  Browse to [Swagger Editor](http://editor.swagger.io/#/) and click on the File menu choice **Import File...** .  You will select the macreduce.mybluemix.net.yaml file found within your ex3 sub-directory.     <br/><br/>     ![swagger](../../images/ex3/swaggerspec_import.png)
+1.  Browse to [Swagger Editor](http://editor.swagger.io/#/) and click on the File menu choice **Import File...** .  You will select the macreduce.mybluemix.net.yaml file found within your ex3 sub-directory.     <br/><br/>     ![swagger](/ragsns/apichol/raw/master/images/ex3/swaggerspec_import.png)
 
-    ![swagger](../../images/ex3/importfile.png) 
-2.  After import, you should see a split pane view with the raw text Swagger spec on the left and a rendered view on the right.     <br/>     ![swagger](../../images/ex3/macreduce.png) 
+    ![swagger](/ragsns/apichol/raw/master/images/ex3/importfile.png) 
+2.  After import, you should see a split pane view with the raw text Swagger spec on the left and a rendered view on the right. <br/>
+    
+    ![swagger](/ragsns/apichol/raw/master/images/ex3/macreduce.png) 
 3.  We will now make a modification to the existing swagger specification.  Browse to the section of the spec that looks similiar to: 
 ```
   '/mac/{macId}':
@@ -87,7 +89,7 @@ We will add an expected response to document the API's behavior when attempting 
   -  paths
   -  content-types (application/json, application/xml, ...)
 
-4.  Click on the File menu choice **Download JSON** to obtain a local copy of your newly modified OpenAPI Swagger 2.0 specification.     <br/><br/>     ![swagger](../../images/ex3/downloadjson.png) 
+4.  Click on the File menu choice **Download JSON** to obtain a local copy of your newly modified OpenAPI Swagger 2.0 specification.     <br/><br/>     ![swagger](/ragsns/apichol/raw/master/images/ex3/downloadjson.png) 
 5.  As you can see, Swagger Editor is a great tool for modifying existing OpenAPI specifications and/or creating brand new specifications.  
 
 ### [LoopBack API using API Designer](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
@@ -102,12 +104,12 @@ This should result in the API Designer opening within your default web browser.
 
 Our next step is to import the OpenAPI specification into API Designer.  To accomplish this, click on the **+ Add** link and select the Import OpenAPI choice
 <br/><br/>
-![importopenapi](../../images/ex3/importopenapi.png)
+![importopenapi](/ragsns/apichol/raw/master/images/ex3/importopenapi.png)
 
 You will want to browse to the location where you downloaded the swagger.json file created from Swagger editor and click on the **Import** button.
 
 This should cause focus on the API Design tab with various fields populated via data found within the OpenAPI specification file.  Feel free to explore the various section links on the left to get a feel for design options available to you.
 <br/><br/>
-![apidesignview](../../images/ex3/apidesignview.png)
+![apidesignview](/ragsns/apichol/raw/master/images/ex3/apidesignview.png)
 
 Next, we'll create a Loopback Application against these defined APIs.
