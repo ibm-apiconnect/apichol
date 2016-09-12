@@ -5,7 +5,10 @@ printf "\pagenumbering{gobble}\n\n" | cat - README.md | pandoc -o docs/apicholex
 for i in $(find exercises -name ex\[0123456789]*)
 do
   cd $i
-  printf "\pagenumbering{gobble}\n\n" | cat - README.md | awk '/^\!\[\]/{$0=$0"\n\\\n"}{print}' | pandoc --latex-engine=xelatex -o ../../docs/apicholex$j.pdf 
+  printf "\pagenumbering{gobble}\n\n" |
+    cat - README.md |
+    awk '/^\!\[\]/{$0=$0"\n\\\n"}{print}' |
+    pandoc --from=markdown+yaml_metadata_block --latex-engine=xelatex --parse-raw -o ../../docs/apicholex$j.pdf
   j=$[$j+1]
   cd ../..
 done
