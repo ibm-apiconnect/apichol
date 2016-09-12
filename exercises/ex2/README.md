@@ -48,7 +48,7 @@ You will be presented with the Drafts screen that looks like below.
 <!--<img src="../../images/ex2/GettingStarted.jpeg"  width="400">-->
 ![](../../images/ex2/GettingStarted.jpeg "")
 
-If you do not have the "Getting Started" window, click on ? and "Turn on Guided Tour" as shown below.
+If you do not have the "Getting Started" window, **click on ? and "Turn on Guided Tour"** as shown below.
 
 <!--<img src="../../images/ex2/TurnOnGuidedTour.jpeg"  width="400">-->
 ![](../../images/ex2/TurnOnGuidedTour.jpeg "")
@@ -58,6 +58,8 @@ We will follow the "Getting Started" tour essentially from now on.
 ### A tour of the API Connect Manager via the sample Weather API
 
 We start off by clicking on "Import API" in the "Getting Started" window and "Import a Sample API" as prompted.
+
+As indicated before, if you do not have the "Getting Started" window, **click on ? and "Turn on Guided Tour"**
 
 <!--<img src="../../images/ex2/ImportSample.jpeg"  width="400">-->
 ![](../../images/ex2/ImportSample.jpeg "")
@@ -119,8 +121,16 @@ If the call succeeds, you should see a response that looks like below with the w
 
 If the call fails as shown below, click on the link and accept the certificates (we're overriding the Cross-Origin Resource Sharing - CORS error)
 
+The following screen shots walks through how to ovveride this via a series of dialog boxes. This might be different based on the browser, the URL and the error but is illustrated below
+
 <!--<img src="../../images/ex2/CORSError.jpeg"  width="400">-->
 ![](../../images/ex2/CORSError.jpeg "")
+
+![](../../images/ex2/CORSError2.jpeg "")
+![](../../images/ex2/ConnectionNotSecure.jpeg "")
+![](../../images/ex2/ConnectionInSecure.jpeg "")
+![](../../images/ex2/ConfirmSecurityException.jpeg "")
+
 
 You can click "Test" on the "Getting Started" window and finally on "Analytics" which should result in something like below.
 
