@@ -97,7 +97,7 @@ We will add an expected response to document the API's behavior when attempting 
 To open the API Designer, on the command line enter:
 
 ```
-apic edit
+SKIP_LOGIN=true apic edit
 ```
 
 This should result in the API Designer opening within your default web browser.
