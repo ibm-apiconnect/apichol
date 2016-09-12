@@ -49,7 +49,8 @@ Swagger Editor is a handy open source web application that lets you quickly edit
 
     ![swagger](../../images/ex3/importfile.png) 
 2.  After import, you should see a split pane view with the raw text Swagger spec on the left and a rendered view on the right.     <br/>     ![swagger](../../images/ex3/macreduce.png) 
-3.  We will now make a modification to the existing swagger specification.  Browse to the section of the spec that looks similiar to: <pre>
+3.  We will now make a modification to the existing swagger specification.  Browse to the section of the spec that looks similiar to: 
+```
   '/mac/{macId}':
       get:
         summary: Retrieves a Mac document
@@ -59,8 +60,12 @@ Swagger Editor is a handy open source web application that lets you quickly edit
         parameters:
           - in: path
             name: macId
-[...]
-</pre> We will add an expected response to document the API's behavior when attempting to fetch a non-existent macId resource.  Add two lines just above the parameters section so that it now looks like this: <pre>
+  [...]
+```
+
+We will add an expected response to document the API's behavior when attempting to fetch a non-existent macId resource.  Add two lines just above the parameters section so that it now looks like this:
+
+```
   '/mac/{macId}':
       get:
         summary: Retrieves a Mac document
@@ -72,8 +77,8 @@ Swagger Editor is a handy open source web application that lets you quickly edit
         parameters:
           - in: path
             name: macId
-[...]
-</pre>
+ [...]
+```
   The specification provides a wide variety of data elements to facilitate describing your API set.  As you inspect your OpenAPI specification file, some important elements to consider include: 
 
   -  method types (get, post, delete, ...)
