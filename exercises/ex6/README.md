@@ -44,15 +44,17 @@ In the connector tab, choose "MySQL". It'll prompt you to install the connector;
 
 <img src="SS2.png"  width="400">
 
-Enter the database credentials you noted in [Exercise 5](../ex5). Enter the `uri` credential into the `url` field and your database name, `employees` into the `Database` field. 
+Enter the database credentials you noted in [Exercise 5](../ex5). Enter the `uri` credential into the `url` field and your `database` credential into the `Database` field. 
 
 Hit the Save button on the top-right. This should test your database connection and alert you if your credentials are incorrect or if the connection was unable to be made.
 
 ### Create Models to work with your database
 
-Create an "Employee" model so that you're able to perform CRUD (Create/Read/Update/Delete) operations against your MySQL database.
+Let's create a model so that you're able to perform CRUD (Create/Read/Update/Delete) operations against your MySQL database. Go to the Models tab and add a new model by clicking the add button. Name it `employees`.
 
-TODO: Add screenshot. <SS3>
+Choose the `mysql-db` Data Source, and enter the following properties:
+
+<img src="SS3.png"  width="750">
 
 That's it! Once a model is created, the APIs to represent that model are automatically generated for you.
 

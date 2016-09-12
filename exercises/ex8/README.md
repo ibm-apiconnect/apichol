@@ -6,15 +6,15 @@
 
 To run through this exercise, you will need to have done the following steps:
 
-**Prerequisite 1** Installed the API Connect toolkit ([Exercise 1](../exercises/ex1))
+**Prerequisite 1** Installed the API Connect toolkit ([Exercise 1](../ex1))
 
-**Prerequisite 2** Generated a LoopBack app ([Exercise 4](../exercises/ex4))
+**Prerequisite 2** Generated a LoopBack app ([Exercise 4](../ex4))
 
-**Prerequisite 3** Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../exercises/ex5))
+**Prerequisite 3** Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../ex5))
 
-**Prerequisite 4** Created database CRUD APIs in the API Designer ([Exercise 6](../exercises/ex6))
+**Prerequisite 4** Created database CRUD APIs in the API Designer ([Exercise 6](../ex6))
 
-**Prerequisite 5** Deployed your LoopBack application to Bluemix ([Exercise 7](../exercises/ex7))
+**Prerequisite 5** Deployed your LoopBack application to Bluemix ([Exercise 7](../ex7))
 
 ### Accessing your deployed APIs
 
@@ -22,15 +22,11 @@ In exercise 7, you tested your APIs locally and deployed them to Bluemix. To see
 
 Navigate to Bluemix: https://new-console.ng.bluemix.net and ensure you are logged in. Choose APIs using the drop-down at the top, and select your API Connect service. This launches the API Manager.
 
-Double check that you're in the `Dashboard` view by selecting the sandwich button on the top left and clicking Dashboard.
+Let's explore the APIs you just pushed. Hit the `Explore` button on the top right, and choose the `Sandbox` catalog. This takes us to a view similar to the `Explore` view on the API Designer that we used in [Exercise 7](../ex7). The main difference is that this time, we are testing these APIs hosted by an application on Bluemix.
 
-TODO: Add screenshot
+On the left, click on the app you just pushed, which is the name of your LoopBack application created earlier.
 
-Click the `Sandbox` Catalog, where you should see the Employee API you deployed earlier.
-
-In this view, you can edit the lifecycle of the API, control its visibility and see analytics. For now, we'll simply Explore the APIs.  Hit the `Explore` button on the top right, and choose your `Sandbox` catalog.
-
-TODO: Add screenshot
+<img src="SS1.png"  width="300">
 
 In this view, we can explore all the APIs in the chosen catalog.
 
@@ -38,19 +34,13 @@ In this view, we can explore all the APIs in the chosen catalog.
 
 Navigate to the operation `GET /Employees`. Along the right side, there is a black section which shows you how to call that operation, shows a sample response, and has a button "Call Operation". Hit the button to call your GET operation.
 
-TODO: Add screenshot
-
-You should see a `200 OK` response, along with an empty array in the response body: `[]`.  This is because you haven't stored anything in the database yet!
+This should return a list of the employees in the database.
 
 #### POST /Employees
 
 Navigate to the operation `POST /Employees` to create a database entry. Scroll down to the "Call Operation" button, enter some data into the Paramters section (or use the `Generate` button), and hit call Operation.
 
-TODO: Add screenshot
-
 You should see a `200 OK` response, as well as a response body indicating that the database update has succeeded. You can now call the `GET /Employees` operation again to see the employee entry you just created.
-
-TODO: Add screenshot
 
 ### Next steps
 
