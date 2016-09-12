@@ -33,7 +33,7 @@ For this exercise, we'll:
 ### [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (Current Version: 2.0)
 The Open API Specification (formerly known as the Swagger specification) is the industry standard for defining REST APIs.  The goal of The OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
 
-<blockquote><b style="color:maroon">OpenAPI removes the guesswork in calling the service</b></blockquote>
+<blockquote>OpenAPI specs remove the guesswork in calling a given service</blockquote>
 
 #### [OpenAPI Components](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
 
