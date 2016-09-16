@@ -22,7 +22,7 @@ Ensure that you are in sub-directory ex3.
 cd <path-to-hol-folder>/apichol/exercises/ex3
 ```
 
-### Goals
+### Overview
 
 For this exercise, we'll:
 
@@ -31,7 +31,7 @@ For this exercise, we'll:
 3. Learn how to import an OpenAPI Specification into API Designer for further editing
 
 ### [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (Current Version: 2.0)
-The Open API Specification (formerly known as the Swagger specification) is the industry standard for defining REST APIs.  The goal of The OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
+The Open API Specification (formerly known as the Swagger specification) is the industry standard for defining REST APIs.  The goal of the OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
 
 <blockquote>OpenAPI specs remove the guesswork in calling a given service</blockquote>
 
@@ -92,7 +92,7 @@ We will add an expected response to document the API's behavior when attempting 
 4.  Click on the File menu choice **Download JSON** to obtain a local copy of your newly modified OpenAPI Swagger 2.0 specification.     <br/><br/>     ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/downloadjson.png) 
 5.  As you can see, Swagger Editor is a great tool for modifying existing OpenAPI specifications and/or creating brand new specifications.  
 
-### [LoopBack API using API Designer](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
+### [Open API Spec Explorer and Designer](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
 
 To open the API Designer, on the command line enter:
 
@@ -112,4 +112,5 @@ This should cause focus on the API Design tab with various fields populated via 
 <br/><br/>
 ![apidesignview](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/apidesignview.png)
 
-Next, we'll create a Loopback Application against these defined APIs.
+### Summary of Exercise
+We've now learned quite a bit.  We know what an Open API (Swagger) specification is, how its used and what is its composition.  We've explored a couple of tools that assist us with Open API design, composition and management.  In the next exercise, we'll create a Loopback Application against these defined APIs.  Having a backend application takes the conceptual descriptions within the spec and makes them concrete (e.g. Functional Create, Read, Update and Delete API endpoints).  It is also worthy to note that if you already possess an existing backend API application, you can publish this Open API (Swagger) specification to Bluemix whereby the platform would then manage your existing APIs for you.  Platforms such as Bluemix are great at providing analytics, gateway, security, authentication and user management facilities for your API needs. 
