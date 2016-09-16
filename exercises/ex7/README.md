@@ -6,17 +6,17 @@
 
 To run through this exercise, you will need to have done the following steps:
 
-**Prerequisite 1** Installed the API Connect toolkit ([Exercise 1](../exercises/ex1))
+**Prerequisite 1** Installed the API Connect toolkit ([Exercise 1](../ex1))
 
-**Prerequisite 2** Generated a LoopBack app ([Exercise 4](../exercises/ex4))
+**Prerequisite 2** Generated a LoopBack app ([Exercise 4](../ex4))
 
-**Prerequisite 3** Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../exercises/ex5))
+**Prerequisite 3** Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../ex5))
 
-**Prerequisite 4** Created database CRUD APIs in the API Designer ([Exercise 6](../exercises/ex6))
+**Prerequisite 4** Created database CRUD APIs in the API Designer ([Exercise 6](../ex6))
 
 ### Ensure that you are in the LoopBack application directory
 
-Ensure that you are in the LoopBack directory you created in [Exercise 2](exercises/ex2)
+Ensure that you are in the LoopBack directory you created in [Exercise 4](../ex2)
 
 ```
 cd <path-to-loopback-folder>
@@ -62,6 +62,8 @@ Navigate to the operation `GET /Employees`. Along the right side, there is a bla
 
 <img src="SS3.png"  width="800">
 
+You might get a CORS error. Please override the CORS error as suggested in exercise 2. Then, retry the `Call Operation`.
+
 You should see a `200 OK` response, along with a large list of employees in the database!
 
 <img src="SS4.png"  width="300">
@@ -102,8 +104,26 @@ Choose both `Publish Application` and `Stage or Publish` products. Hit `Publish`
 
 <img src="SS10.png"  width="300">
 
+It may take a few minutes for the application to get started. You can track the status of your application by using the `CF` client that you setup in [Exercise 1](../ex1). Simply run the `cf app EmployeeAPI` command:
+
+```
+$ cf app employeeapi
+Showing health and status for app employeeapi in org raghsrin@us.ibm.com / space dev as raghsrin@us.ibm.com...
+OK
+
+requested state: started
+instances: 0/1
+usage: 256M x 1 instances
+urls: apiconnect-be783035-d8e9-4ceb-b2d7-f16e9340c1d1.raghsrinusibmcom-dev.apic.mybluemix.net
+last uploaded: Tue Sep 13 19:06:32 UTC 2016
+stack: cflinuxfs2
+buildpack: unknown
+```
+
+Once the `requested state` is `started`, the application is started and your APIs are being managed by API Connect!
+
 ### Next steps
 
 In the next two exercises, we'll explain how you can test your APIs and create a developer portal so others can consume your APIs.
 
-Next up, Exercise 8: [Explore your deployed APIs with the API Manager on Bluemix](../exercises/ex8)
+Next up, Exercise 8: [Explore your deployed APIs with the API Manager on Bluemix](../ex8)

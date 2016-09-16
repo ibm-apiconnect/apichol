@@ -44,7 +44,9 @@ In the connector tab, choose "MySQL". It'll prompt you to install the connector;
 
 <img src="SS2.png"  width="400">
 
-Enter the database credentials you noted in [Exercise 5](../ex5). Enter the `uri` credential into the `url` field and your `database` credential into the `Database` field. 
+Enter the database credentials you noted in [Exercise 5](../ex5). Enter the `uri` credential into the `url` field and your `name` credential into the `Database` field. 
+
+<img src="SS4.png"  width="600">
 
 Hit the Save button on the top-right. This should test your database connection and alert you if your credentials are incorrect or if the connection was unable to be made.
 
@@ -55,6 +57,8 @@ Let's create a model so that you're able to perform CRUD (Create/Read/Update/Del
 Choose the `mysql-db` Data Source, and enter the following properties:
 
 <img src="SS3.png"  width="750">
+
+We are about to create a LoopBack model representation of the MySQL database. The name of the model `employees` refers to the table name in the MySQL database. The various property names refer to the MySQL "fields". The types translate to MySQL fields -- for example, `String` to `VARCHAR`. `Key` in LoopBack is similar to `Key` in MySQL.
 
 That's it! Once a model is created, the APIs to represent that model are automatically generated for you.
 
