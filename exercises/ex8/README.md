@@ -46,4 +46,4 @@ You should see a `200 OK` response, as well as a response body indicating that t
 
 In the next exercises, we'll create a developer portal so others can consume your APIs.
 
-Next up, Exercise 9: [Generate a Developer Portal for your APIs](../exercises/ex9)
+Next up, Exercise 9: [Generate a Developer Portal for your APIs](../ex9)
