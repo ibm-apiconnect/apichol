@@ -44,6 +44,10 @@ In the connector tab, choose "MySQL". It'll prompt you to install the connector;
 
 <img src="SS2.png"  width="400">
 
+**If the previous step did not work, continue with this step. Otherwise, proceed below.**
+
+**Work-Around**: If you saw an error, switch back to your terminal. Use `Ctrl+C` to end the `apic edit` instance. This shuts down the API Designer Toolkit.  Then, type the command `npm i --save loopback-connector-mysql` to manually install the LoopBack connector for MySQL databases. Then, run `apic edit` again, switch to the `Databases` tab, open your `mysql-db` entry, and continue below.
+
 Enter the database credentials you noted in [Exercise 5](../ex5). Enter the `uri` credential into the `url` field and your `name` credential into the `Database` field. 
 
 <img src="SS4.png"  width="600">
