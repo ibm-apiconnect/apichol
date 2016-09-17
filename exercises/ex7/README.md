@@ -6,17 +6,17 @@
 
 To run through this exercise, you will need to have done the following steps:
 
-**Prerequisite 1** Installed the API Connect toolkit ([Exercise 1](../ex1))
+**Prerequisite 1**: Installed the API Connect toolkit ([Exercise 1](../ex1)).
 
-**Prerequisite 2** Generated a LoopBack app ([Exercise 4](../ex4))
+**Prerequisite 2**: Generated a LoopBack app ([Exercise 4](../ex4)).
 
-**Prerequisite 3** Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../ex5))
+**Prerequisite 3**: Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../ex5)).
 
-**Prerequisite 4** Created database CRUD APIs in the API Designer ([Exercise 6](../ex6))
+**Prerequisite 4**: Created database CRUD APIs in the API Designer ([Exercise 6](../ex6)).
 
 ### Ensure that you are in the LoopBack application directory
 
-Ensure that you are in the LoopBack directory you created in [Exercise 4](../ex2)
+Ensure that you are in the LoopBack directory you created in [Exercise 4](../ex4).
 
 ```
 cd <path-to-loopback-folder>
@@ -122,7 +122,9 @@ buildpack: unknown
 
 Once the `requested state` is `started`, the application is started and your APIs are being managed by API Connect!
 
-### Next steps
+### Summary and next steps
+
+In this exercise we explored, tested and deployed the application to Bluemix.
 
 In the next two exercises, we'll explain how you can test your APIs and create a developer portal so others can consume your APIs.
 

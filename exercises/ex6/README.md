@@ -6,11 +6,15 @@
 
 To run through this exercise, you will need to have done the following steps:
 
-**Prerequisite 1** Installed the API Connect toolkit ([Exercise 2](../ex2))
+**Prerequisite 1**: Installed the API Connect toolkit ([Exercise 1](../ex1)).
 
-**Prerequisite 2** Generated a LoopBack app ([Exercise 4](../ex4))
+**Prerequisite 2**: Generated a LoopBack app ([Exercise 4](../ex4)).
 
-**Prerequisite 3** Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../ex5))
+**Prerequisite 3**: Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../ex5)).
+
+### Overview of Exercise
+
+In this exercise we will create simple CRUD-based APIs around the `employees` database.
 
 ### Ensure that you are in the LoopBack application directory
 
@@ -66,7 +70,9 @@ We are about to create a LoopBack model representation of the MySQL database. Th
 
 That's it! Once a model is created, the APIs to represent that model are automatically generated for you.
 
-### Next steps
+### Summary and next steps
+
+We just created APIs around the `employees` database.
 
 In the next exercise, we will test your new APIs by starting the LoopBack application locally and use an interactive OpenAPI explorer to call your APIs!
 

@@ -6,20 +6,14 @@
 
 Make sure you've met the following prerequisites.
 
-**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
-
-**Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
-
-**Prerequisite 3**: Installed `npm` and `apic`. Refer to instructions from [https://nodejs.org/en/download/] (https://nodejs.org/en/download/) and [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect) respectively.
-
-**Prerequisite 4**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
+**Prerequisite 1**: Installed the API Connect toolkit and targeted the Bluemix instance ([Exercise 1](../ex1)).
 
 ### Ensure that you are in the right sub-directory
 
 Ensure that you are in sub-directory ex5.
 
 ```
-cd <path-to-hol-folder>/apichol/exercises/ex5
+cd <path-to-hol-folder>/exercises/ex5
 ```
 
 ### Verify your Target within Bluemix instance
@@ -40,10 +34,16 @@ Org:            <bluemix_email_id>
 Space:          dev
  
 ```
-### Overview
-For this exercise, we seek to learn how to rapidly instantiate a MySQL DB service and populate it with sample data, thus forming an asset for future exercises exploring the creation of database CRUD APIs.  With a Platform as a Service (PaaS) such as IBM Bluemix, DB creation and interaction is super easy -- as you'll see.   
+### Overview of Exercise
+For this exercise, we seek to learn how to rapidly instantiate a MySQL DB service and populate it with sample data, thus forming an asset for future exercises exploring the creation of database CRUD APIs.
+
+We will use a simple Java application to populate the data that will be accessible via the APIs.
+
+Although the API is based around a simple `employees` database, you can follow similar methods to provide APIs around your more complex and production enterprise Java/Node.js application.
 
 ### Creating a database service
+ With a Platform as a Service (PaaS) such as IBM Bluemix, DB creation and interaction is super easy -- as you'll see.
+
 IBM Bluemix offers a wide array of data service options that are just a few clicks/commands away.
 
 ![Service catalog](../../images/ex5/datasvc_catalog.png)
@@ -92,7 +92,7 @@ As you can see, the first two columns contain 2 out of 3 of parameters that we n
 - **Cleardb**
 - **MySQL** 
 
-While the marketplace command contains both names and plans, there may be times where you know the name of the service and simply want to enumerate the latest plan options.  If so, there is a convenient shortcut CLI command to discover only the associated plans.<br/>
+While the marketplace command contains both names and plans, there may be times where you know the name of the service and simply want to enumerate the latest plan options. There is a convenient shortcut CLI command to discover only the associated plans.<br/>
 **Nota Bene:  This convenience does not extend to services designated as experimental within the catalog**
 
 For example, the command to discover the Cleardb plans are:
@@ -256,6 +256,8 @@ For the curious, the utility intentionally generates and persists a resultSet of
 
 Sweet! That's it!  We can all agree, that was pretty simple to standup a MySQL DB and get it populated.  
 
-### Summary of Exercise
+### Summary of exercise and next steps
 
-We started with a goal of instantiating a MySQL DB and getting it populated with some sample data.  We learned about available IBM Bluemix DB services, the required details for creating a MySQL DB instance and the use of a simple Java program that consumes the generated credentials to facilitate connecting and populating the new MySQL DB instance.   In the next exercise, we will dive into creation of database CRUD APIs that leverage this populated DB.
+We started with a goal of instantiating a MySQL DB and getting it populated with some sample data.  We learned about available IBM Bluemix DB services, the required details for creating a MySQL DB instance and the use of a simple Java program that consumes the generated credentials to facilitate connecting and populating the new MySQL DB instance.
+
+In [Exercise 6](../ex6), we will dive into creation of database CRUD APIs that leverage this just populated DB.

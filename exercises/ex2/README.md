@@ -4,13 +4,11 @@
 
 ### Prerequisites
 
-Make sure you've met the following prerequisites.
+**Prerequisite 1**: Installed the API Connect toolkit ([Exercise 1](../ex1)).
 
-**Prerequisite 1**: Completed Exercise 1.
+### Overview of exercise
 
-### Overview
-
-In the previous exercise we looked at how to use loopback framework on the `localhost` which is great for development. In this exercise, we will now look at how to use the API Connect service as a service on Bluemix. The service provides an API connect manager which provides the same tasks that were available via the API Connect GUI locally. 
+In the previous exercise we looked at how to use loopback framework on the `localhost` which is great for development. In this exercise, we will now look at how to use the API Connect service as a service on Bluemix. The service provides an API connect manager which provides the same tasks that were available via the API Connect GUI locally, but on the cloud.
 
 The service also enables publication of the APIs to a developer portal which will be covered in a subsequent exercise.
 
@@ -43,12 +41,12 @@ You will presented tith a Drafts API screen that looks like below.
 
 Click on "Got it" and proceed.
 
-You will be presented with the Drafts screen that looks like below.
+You will be presented with the Drafts screen that looks like below with the `Getting Started` window on the top right as shown below.
 
 <!--<img src="../../images/ex2/GettingStarted.jpeg"  width="400">-->
 ![](../../images/ex2/GettingStarted.jpeg "")
 
-If you do not have the "Getting Started" window, **click on ? and "Turn on Guided Tour"** as shown below.
+If you do not see the "Getting Started" window at any time, **click on ? and "Turn on Guided Tour"** as shown below.
 
 <!--<img src="../../images/ex2/TurnOnGuidedTour.jpeg"  width="400">-->
 ![](../../images/ex2/TurnOnGuidedTour.jpeg "")
@@ -59,7 +57,7 @@ We will follow the "Getting Started" tour essentially from now on.
 
 We start off by clicking on "Import API" in the "Getting Started" window and "Import a Sample API" as prompted.
 
-As indicated before, if you do not have the "Getting Started" window, **click on ? and "Turn on Guided Tour"**
+As indicated before, if you do not have the `Getting Started` window on top right, **click on ? and "Turn on Guided Tour"**
 
 <!--<img src="../../images/ex2/ImportSample.jpeg"  width="400">-->
 ![](../../images/ex2/ImportSample.jpeg "")
@@ -67,7 +65,7 @@ As indicated before, if you do not have the "Getting Started" window, **click on
 In the Dialog box shown below pick the "Climbing Weather" project and hit "Import" as shown below.
 
 <!--<img src="../../images/ex2/ImportSampleDialog.jpeg"  width="400">-->
-![](../../images/ex2/LoginBluemix.jpeg "")
+![](../../images/ex2/ImportSampleDialog.jpeg "")
 
 This will prompt you about the "API Editor" as shown below. Hit "Got it!".
 
@@ -139,6 +137,8 @@ You can click "Test" on the "Getting Started" window and finally on "Analytics" 
 
 Which should show the usage statistics for the product.
 
-### Summary of Exercise
+### Summary of exercise and next steps
 
-We started with the API connect product locally and looked at how to use the same service on Bluemix via the Sample. In a later exercise, we will publish the product to a developer portal that is an adjunct service with the API connect service on Bluemix.
+We started with the API connect product locally in an exercise and looked at how to use the same service on Bluemix via the Sample. In a later exercise, we will publish the product to a developer portal that is an adjunct service with the API connect service on Bluemix.
+
+In [Exercise 3](../ex3) we will look at how to use the OpenAPI specification (swagger) editor.

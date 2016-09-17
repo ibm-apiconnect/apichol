@@ -6,23 +6,17 @@
 
 Make sure you've met the following prerequisites.
 
-**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
-
-**Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
-
-**Prerequisite 3**: Installed `npm` and `apic`. Refer to instructions from [https://nodejs.org/en/download/] (https://nodejs.org/en/download/) and [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect) respectively.
-
-**Prerequisite 4**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
+**Prerequisite 1**: Installed the API Connect toolkit ([Exercise 1](../ex1)).
 
 ### Ensure that you are in the right sub-directory
 
 Ensure that you are in sub-directory ex3.
 
 ```
-cd <path-to-hol-folder>/apichol/exercises/ex3
+cd <path-to-hol-folder>/exercises/ex3
 ```
 
-### Overview
+### Overview of exercise
 
 For this exercise, we'll:
 
@@ -41,7 +35,7 @@ The Open API Specification (formerly known as the Swagger specification) is the 
 - BENEFITS:  With a OpenAPI specifcation, you'll be able to generate client libraries in lots of runtime languages, generate server stubs, import these definitions into API management tools such as Bluemix APIConnect and use tools to verify conformance. 
 
 ### [Swagger Editor](http://editor.swagger.io/#/)
-Swagger Editor is a handy open source web application that lets you quickly edit OpenAPI Swagger specifications in YAML or JSON.  You can import or create custom specifications within a browser.  We'll use this hosted editor and a Swagger JSON specification **macreduce.mybluemix.net.json** located within the ex3 sub-directory to illustrate the use of the editor and how it can be used to design/modify a Swagger specification.
+Swagger Editor at [http://editor.swagger.io/#/](http://editor.swagger.io/#/) is a handy open source web application that lets you quickly edit OpenAPI Swagger specifications in YAML or JSON.  You can import or create custom specifications within a browser.  We'll use this hosted editor and a Swagger JSON specification **macreduce.mybluemix.net.json** located within the ex3 sub-directory to illustrate the use of the editor and how it can be used to design/modify a Swagger specification.
 
 #### Exploring an OpenAPI (Swagger) 2.0 Specification
 
@@ -112,5 +106,9 @@ This should cause focus on the API Design tab with various fields populated via 
 <br/><br/>
 ![apidesignview](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/apidesignview.png)
 
-### Summary of Exercise
-We've now learned quite a bit.  We know what an Open API (Swagger) specification is, how its used and what is its composition.  We've explored a couple of tools that assist us with Open API design, composition and management.  In the next exercise, we'll create a Loopback Application against these defined APIs.  Having a backend application takes the conceptual descriptions within the spec and makes them concrete (e.g. Functional Create, Read, Update and Delete API endpoints).  It is also worth noting that if you already possess an existing backend API application, you can publish this Open API (Swagger) specification to Bluemix whereby the platform would then manage your existing APIs for you.  Platforms such as Bluemix are great at providing analytics, gateway, security, authentication and user management facilities for your API needs. Navigate over to ex4 directory and begin exercise 4.
+It is also worth noting that if you already possess an existing backend API application, you can publish this Open API (Swagger) specification to Bluemix whereby the platform would then manage your existing APIs for you.  Platforms such as Bluemix are great at providing analytics, gateway, security, authentication and user management facilities for your API needs.
+
+### Summary of exercise and next steps
+We've now learned quite a bit.  We know what an Open API (Swagger) specification is, how its used and what is its composition.  We've explored a couple of tools that assist us with Open API design, composition and management.
+
+In [Exercise 4](../ex4), we'll create a Loopback Application against these defined APIs.  Having a backend application takes the conceptual descriptions within the spec and makes them concrete (e.g. Functional Create, Read, Update and Delete API endpoints).

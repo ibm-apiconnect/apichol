@@ -2,9 +2,39 @@
 
 ##Prerequisites
 
-Needless to say you'll need a laptop! Any OS is fine, but make sure to install the following prior to the session:
+Needless to say you'll need a laptop! It is recommended you use a Mac OS or a ubuntu desktop version laptop. Also make sure you install the following software prior to the session:
 
-- [Git](http://git-scm.com/downloads) or "brew install git"
+You can verify the versions of the required or pre-installed software by running the following commands and ensuring that you have the following versions (or higher).
+
+```
+git --version
+git version 2.7.4
+```
+
+```
+cf --version
+cf version 6.21.1+6fd3c9f-2016-08-10
+```
+
+```
+node --version
+v4.5.0
+```
+
+```
+npm --version
+3.10.7
+```
+
+```
+apic --version
+API Connect: v5.0.3.0 iFix 2
+```
+
+
+The software can also be installed from
+
+- Git from [http://git-scm.com/downloads](http://git-scm.com/downloads) or "brew install git"
 
 - The `cf` CLI from [https://github.com/cloudfoundry/cli#downloads] (https://github.com/cloudfoundry/cli#downloads) - download the latest version that is appropriate for your laptop and follow the instructions in README.txt. 
 <p>
@@ -12,19 +42,31 @@ OR
 <p>
 from [http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html).
 
-- Install npm and API connect Developer kit - Install `nodejs` and `npm` from [https://nodejs.org/en/download/](https://nodejs.org/en/download/). Install API connect Developer Kit after installing `npm` from [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect)
+- Install npm - Install `nodejs` from [https://nodejs.org/en/download/](https://nodejs.org/en/download/) which also installs `npm`.
 
-- A Bluemix hosted instance
+- Install API connect Developer kit - Install API connect Developer Kit after installing `npm` from [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect)
 
-During the live HOL we will help you with a hosted environment (the details are below).  We've done limited testing of the exercises on the following instance.
+###Sign up for a Bluemix account
 
+- **Sign up for a new account on a Bluemix hosted instance** - It is recommended you create a new account from [https://console.ng.bluemix.net/] (https://console.ng.bluemix.net/) especially if you have not created this account in the last few days.
 
-- [https://console.ng.bluemix.net/] (https://console.ng.bluemix.net/)
+##Lab software
+The software including the instructions is available from [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol). Install the software locally on your laptop by running the followng command.
 
+```
+git clone https://github.com/ragsns/apichol
+```
+
+If the lab software has already been installed (you should be able to see a subdirectory named `apichol`) ensure that you have the latest updates by issuing the following command.
+
+```
+cd apichol
+git pull
+```
 
 ##Samples and General Directions
 
-Each directory is in a separate sub-directory. ***Ensure that you're in the sub-directory when you're working on a particular exercise and you're issuing the CLI commands from the subdirectory pertaining to the exercise.***
+Each exercise is in a separate sub-directory. ***Ensure that you're in the sub-directory when you're working on a particular exercise and you're issuing the CLI commands from the subdirectory pertaining to the exercise.***
 
 
 ##Recommended Exercises - User Related
@@ -52,4 +94,4 @@ API Connect Developer Toolkit at [https://www.npmjs.com/package/apiconnect] (htt
 
 ##Contact
 
-Please contact us on Twitter @ragss or @boilerupnc or @sai_vennam.
+Please contact us at Twitter @ragss or @boilerupnc or @sai_vennam.

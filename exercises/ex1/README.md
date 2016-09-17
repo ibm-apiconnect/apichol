@@ -1,30 +1,82 @@
 #API Connect Hands-On Labs
 
-##Exercise 1: Install Node.js, API Connect Toolkit and create a sample "hello world" API connect project
+##Exercise 1: Install Node.js, API Connect Toolkit, target a Bluemix instance and create a sample "hello world" API connect project
 
 ### Prerequisites
 
-If you're working on your own laptop, make sure you've met the following prerequisites (**prerequisites 2-4 may already have been met if you're using a pre-installed laptop. You can verify this by typing `cf` and `apic` commands**).
+It is recommended you use a Mac OS or a ubuntu desktop version laptop. Also make sure to install the following software prior to the session:
 
-**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
+You can verify the versions of the required or pre-installed software by running the following commands and ensuring that you have the following versions (or higher).
 
-**Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
+```
+git --version
+git version 2.7.4
+```
 
-**Prerequisite 3**: Installed `npm` and `apic`. Refer to instructions from [https://nodejs.org/en/download/] (https://nodejs.org/en/download/) and [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect) respectively.
+```
+cf --version
+cf version 6.21.1+6fd3c9f-2016-08-10
+```
 
-**Prerequisite 4**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
+```
+node --version
+v4.5.0
+```
+
+```
+npm --version
+3.10.7
+```
+
+```
+apic --version
+API Connect: v5.0.3.0 iFix 2
+```
+
+
+The software can also be installed from
+
+- Git from [http://git-scm.com/downloads](http://git-scm.com/downloads) or "brew install git"
+
+- The `cf` CLI from [https://github.com/cloudfoundry/cli#downloads] (https://github.com/cloudfoundry/cli#downloads) - download the latest version that is appropriate for your laptop and follow the instructions in README.txt.
+<p>
+OR
+<p>
+from [http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html).
+
+- Install npm - Install `nodejs` from [https://nodejs.org/en/download/](https://nodejs.org/en/download/) which also installs `npm`.
+
+- Install API connect Developer kit - Install API connect Developer Kit after installing `npm` from [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect)
+
+###Sign up for a Bluemix account
+
+**Sign up for a new account on a Bluemix hosted instance** - It is recommended you create a new account from [https://console.ng.bluemix.net/] (https://console.ng.bluemix.net/) especially if you have not created this account in the last few days.
+
+##Lab software
+The software including the instructions is available from [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol). Install the software locally on your laptop by running the followng command.
+
+```
+git clone https://github.com/ragsns/apichol
+```
+
+If the lab software has already been installed (you should be able to see a subdirectory named `apichol`) ensure that you have the latest updates by issuing the following command.
+
+```
+cd apichol
+git pull
+```
 
 ### Ensure that you are in the right sub-directory
 
 Ensure that you are in sub-directory ex1.
 
 ```
-cd <path-to-hol-folder>/apichol/exercises/ex1
+cd <path-to-hol-folder>/exercises/ex1
 ```
 
-### Overview
+### Overview of exercise
 
-We will target a Bluemix Cloud Foundry instance using the Bluemix ID created and look at the API Connect service locally.
+In this exercise, we will target a Bluemix Cloud Foundry instance using the Bluemix ID you created and invoke the API Connect service locally.
 
 ### Target the Bluemix instance
 
@@ -118,7 +170,7 @@ TIP: Use 'cf target -o raghsrin@us.ibm.com -s dev' to target new space
 Issue the command as provided in `TIP` above as below to target the newly created space (if required).
 
 ```
-cf target -o <your IBM ID> -s dev
+cf target -o <your IBM ID at signup> -s dev
 ```
 
 The output will look something like below.
@@ -188,7 +240,7 @@ You can try other options as available in the following command
 apic --help
 ```
 
-You can post a note via the following `cURL` command
+You can post a note via the following `cURL` command. You may have to override the SSL certificates manually.
 
 ```
 curl -k -X POST https://localhost:4002/api/Messages -H 'X-IBM-Client-Id: default' -H 'X-IBM-Client-Secret: SECRET' -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "greeting": "Hello World" }' -v 
@@ -213,7 +265,7 @@ You can explore further by invoking the following command
 SKIP_LOGIN=true apic edit
 ```
 
-This will launch the API connect GUI in the default browser. You will have to override the certificates manually for the API connect product in order to invoke the `cURL` commands. For now, feel free to wander around. We will take a more formal guided tour in the subsequent exercise.
+This will launch the API connect GUI in the default browser. You will have to override the certificates manually. For now, feel free to wander around. We will take a more formal guided tour in the subsequent exercise.
 
 Finally, you can stop the service as below.
 
@@ -232,6 +284,8 @@ rm -rf notes
 
 We will dive into API Connect in the subsequent exercises.
 
-### Summary of Exercise
+### Summary of exercise and next steps
 
-After installing all the prerequisites, we explored how to target a Cloud Foundry instance and use the API connect product locally. Next we will look into how to use the product on Bluemix.
+After installing all the prerequisites, we explored how to target a Bluemix/Cloud Foundry instance and use the API connect product locally.
+
+Next we will look into how to use the API connect Manager on Bluemix which provide an interface similar to what we saw locally. We will go through the `Getting Started` tour which will give us a good idea of the different artifacts and how they are connected in [Exercise 2](../ex2).

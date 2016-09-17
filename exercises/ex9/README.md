@@ -6,13 +6,14 @@
 
 Make sure you've met the following prerequisites.
 
-**Prerequisite 1**: Completed Exercise 2.
+**Prerequisite 1**: Completed Exercise 2 ([Exercise 2](../ex2))
 
-### Overview
+### Overview of exercise
 
-We will pick up from where we left off at exercise 2. We followed the "Getting Started" tour to use the API Connect manager and invoke the APIs within the API Connect manager.
+We will pick up from where we left off at exercise 2.
+We followed the "Getting Started" tour to use the API Connect manager and invoke the APIs within the API Connect manager.
 
-In this exercise, we will publish the APIs, with an associated plan and so on to a developer portal which is an adjunct to the Bluemix API Connect service. These APIs can be invoked by any REST-based client.
+In this exercise, we will publish the APIs, with an associated plan and so on to a self-service developer portal which is an adjunct to the Bluemix API Connect service. These APIs can be invoked by any REST-based client.
 
 ### Publishing the Sample API to the Developer Portal
 
@@ -31,7 +32,7 @@ Select the "Settings" tab, pick "Portal" and pick the "IBM Developer Portal". Fi
 <!--<img src="../../images/ex9/DevPortal.jpeg"  width="400">-->
 ![](../../images/ex9/DevPortal.jpeg "")
 
-Wait for the email to arrive that the developer portal is ready as the dialog box below indicates.
+Wait for the email to arrive that the developer portal is ready as the dialog box below indicates. **This might take a few minutes.**
 
 <!--<img src="../../images/ex9/DeveloperPortalDialog.jpeg"  width="400">-->
 ![](../../images/ex9/DeveloperPortalDialog.jpeg "")
@@ -75,7 +76,7 @@ Now back in the API Connect Manager click on the "Products" tab and click on "..
 <!--<img src="../../images/ex9/EditVisibilityMenu.jpeg"  width="400">-->
 ![](../../images/ex9/EditVisibilityMenu.jpeg "")
 
-Change the visibility to "Custom" and add the organization and Bluemix. Finally hit "Republish" as shown below.
+Change the visibility to "Custom" and add the organization (substituting your own organization) and Bluemix. Finally hit "Republish" as shown below.
 
 <!--<img src="../../images/ex9/Republish.jpeg"  width="400">-->
 ![](../../images/ex9/Republish.jpeg "")
@@ -101,7 +102,7 @@ You should see an account ativation complete as shown below.
 <!--<img src="../../images/ex9/AcountActivation.jpeg"  width="400">-->
 ![](../../images/ex9/AcountActivation.jpeg "")
 
-Login with the account which will bring up the portal as below.
+After the email arrives at this second login with the account details, click on the link which will bring up the portal as below.
 
 <!--<img src="../../images/ex9/UserLogin.jpeg"  width="400">-->
 ![](../../images/ex9/UserLogin.jpeg "")
@@ -160,6 +161,20 @@ That should provide a response which is shown below.
 <!--<img src="../../images/ex9/ClimbingWeatherAPIRequestResponse.jpeg"  width="400">-->
 ![](../../images/ex9/ClimbingWeatherAPIRequestResponse.jpeg "")
 
-### Summary of Exercise
+### Summary of exercise and next steps
 
-We started with the API connect product locally in exercise 1 and looked at how to use the same service on Bluemix via the Sample in exercise 2. In this exercise, we published the product to a developer portal that is an adjunct service with the API connect service on Bluemix.
+We started with the API connect product locally in exercise 1 and looked at how to use the same service on Bluemix via the Sample in Exercise 2.
+
+In this exercise, we published the product to a developer portal that is an adjunct service with the API connect service on Bluemix.
+
+You could follow a similar journey to publish your own APIs aroud your own user-generated data. You can use the variety of connectors availble via API Connect.
+
+### Final Summary
+
+In conclusion, we covered the usage of the API Connect Manager locally and on Bluemix, how to create models locally, publish them on Bluemix and explore the APIs.
+
+Finally we published the APIs on a self-service developer portal which provides API-based services including providing service keys, throttling, etc. without having to write any code.
+
+**Congratulations! You are done!!**
+
+

@@ -6,28 +6,22 @@
 
 Make sure you've met the following prerequisites.
 
-**Prerequisite 1**: Registered for a Bluemix account that is **still current** (trial Bluemix accounts are available at <http://console.ng.bluemix.net>). Contact the instructor for a promotion code for a bump in the quota. Please note down the `username` (or `email`) and `password` which will be used to login via the `cf` CLI.
-
-**Prerequisite 2**: Installed the Cloud Foundry CLI from <https://github.com/cloudfoundry/cli#downloads>.
-
-**Prerequisite 3**: Installed `npm` and `apic`. Refer to instructions from [https://nodejs.org/en/download/] (https://nodejs.org/en/download/) and [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect) respectively.
-
-**Prerequisite 4**: Installed the Hands-On Labs locally. You can either `git clone` [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol) or download a zip from the repository.
+**Prerequisite 1** Installed the API Connect toolkit ([Exercise 1](../ex1))
 
 ### Ensure that you are in the right sub-directory
 
 Ensure that you are in sub-directory ex4.
 
 ```
-cd <path-to-hol-folder>/apichol/exercises/ex4
+cd <path-to-hol-folder>/exercises/ex4
 ```
-### Overview
+### Overview of exercise
 
-For this exercise, we'll:
+In this exercise, we'll:
 
 1. Learn about how to create a LoopBack application
 2. Learn how to consume an OpenAPI specification and shape a backend LoopBack application's behavior
-3. Learn how to implement basic behavior around your imported API design
+3. Learn how to implement basic behavior around the imported API design
 
 ### [LoopBack API](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
 
@@ -102,7 +96,6 @@ and click on our model named `swagger_api_v1`.  This will open the properties vi
 
 ![New Datasource](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex4/setdatasource.png "New Datasource")
 
-
 Sweet!  We now have a node application with endpoints defined via our OpenAPI specification.  To test, let's fire up the app:
 
 ```
@@ -130,17 +123,17 @@ Within this folder, you'll notice two files:
 1. swagger-api-v-1.js : defines implementation logic for the generated stub APIs generated
 2. swagger-api-v-1.json : defines meta properties about the generated API model
 
-To expedite the logic implementation, a handy uncommented copy of a partially implemented controller file is provided within the ex4 parent folder named **swagger-api-v-1.js**.  While in the project folder loopbackapp folder, execute the following command to replace the existing controller with this partial implementation:
+To expedite the logic implementation, a handy uncommented copy of a partially implemented controller file is provided within the ex4 parent folder named **swagger-api-v-1.js.uncommented**.  While in the project folder loopbackapp folder, execute the following command to replace the existing controller with this partial implementation:
 
 ```
 cp ../swagger-api-v-1.js.uncommented server/models/swagger-api-v-1.js
 ```
 
-You'll be prompted to overwrite.  Response with **y** (yes).
+You'll be prompted to overwrite.  Respond with **y** (yes).
 
 This partial implementation enables four (4) of the OpenAPI specification entries for 
 
-- **GET** and **POST** on `/mac`
+- **GET** and **POST** on  `/mac`
 - **GET** and **DELETE** `/mac/{macId}`
  
 If you're curious, we've also provided for comparison and inspection, a commented copy in the ex4 directory. (`../swagger-api-v-1.js.commented`).  
@@ -170,5 +163,8 @@ The result should look similar to this:
 
 Awesome sauce!  Go ahead and kill the running node process within your terminal and change directories to exercise 5.
 
-###Summary of Exericse
-You've now walked through the process of quickly creating a REST API Loopback Application shaped by an OpenAPI (swagger) specification.  You also learned how to modify the generated backend Loopback application to partially implement support for a couple of HTTP method types (GET and POST).  Next, we'll learn how to easily create and populate a MySQL Db service instance as a building block towards our ultimate goal of establishing DB API operations that support Create, Read, Update and Delete (CRUD). 
+###Summary of exericse and next steps
+
+You've now walked through the process of quickly creating a REST API Loopback Application shaped by an OpenAPI (swagger) specification.  You also learned how to modify the generated backend Loopback application to partially implement support for a couple of HTTP method types (GET and POST).
+<p>
+In [Exercise 5](../ex5) we'll learn how to easily create and populate a MySQL database service instance as a building block towards our ultimate goal of establishing API operations that support Create, Read, Update and Delete (CRUD) methods.
