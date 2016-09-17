@@ -1,8 +1,9 @@
 #!/bin/bash
+mv *.pdf oldpdfs
 j=1
 cd ..
 printf "\pagenumbering{gobble}\n\n" | cat - README.md | pandoc -o docs/apicholex0.pdf
-for i in $(find exercises -name ex\[0123456789]*)
+for i in $(find exercises -name ex\[0123456789])
 do
   cd $i
   printf "\pagenumbering{gobble}\n\n" |
