@@ -25,13 +25,19 @@ In this exercise, we'll:
 
 ### [LoopBack API](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
 
+We'll first make an empty project directory to contain all of our work for exercise 4.
 
-Navigate to the empty loopbackapp folder within the ex4 directory
+```
+mkdir -p ./loopbackapp
+```
+
+Next, navigate within the empty loopbackapp folder by typing the following:
 
 ```
 cd loopbackapp
 ```
 
+Next, we'll leverage the **apic** binary to create a Loopback Application project.
 Execute the following command line syntax:
 
 ```
