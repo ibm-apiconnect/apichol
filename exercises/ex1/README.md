@@ -34,7 +34,7 @@ API Connect: v5.0.3.0 iFix 2
 ```
 
 
-The software can also be installed from
+The software can also be installed (if you Bring Your Own Laptop) from
 
 - Git from [http://git-scm.com/downloads](http://git-scm.com/downloads) or "brew install git"
 
