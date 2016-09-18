@@ -21,7 +21,7 @@ In this exercise we will create simple CRUD-based APIs around the `employees` da
 Ensure that you are in the LoopBack directory you created in [Exercise 4](../ex4)
 
 ```
-cd <path-to-loopback-folder>
+cd <path-to-hol-folder>/apichol/exercises/ex4/loopbackapp
 ```
 
 ### Launch the API Connect Designer (Developer toolkit)
@@ -68,7 +68,7 @@ Choose the `mysql-db` Data Source, and enter the following properties:
 
 We are about to create a LoopBack model representation of the MySQL database. The name of the model `employees` refers to the table name in the MySQL database. The various property names refer to the MySQL "fields". The types translate to MySQL fields -- for example, `String` to `VARCHAR`. `Key` in LoopBack is similar to `Key` in MySQL.
 
-That's it! Once a model is created, the APIs to represent that model are automatically generated for you.
+Hit the `Save` button on the top right to create the model. That's it! Once a model is created, the APIs to represent that model are automatically generated for you.
 
 ### Summary and next steps
 

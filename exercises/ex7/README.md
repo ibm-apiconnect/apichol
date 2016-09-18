@@ -14,6 +14,10 @@ To run through this exercise, you will need to have done the following steps:
 
 **Prerequisite 4**: Created database CRUD APIs in the API Designer ([Exercise 6](../ex6)).
 
+### Overview of Exercise
+
+In this exercise we will test the APIs created in the previous exercise, explore the swagger-based API UI, and deploy your APIs to Bluemix.
+
 ### Ensure that you are in the LoopBack application directory
 
 Ensure that you are in the LoopBack directory you created in [Exercise 4](../ex4).
