@@ -240,25 +240,6 @@ You can try other options as available in the following command
 apic --help
 ```
 
-You can post a note via the following `cURL` command. You may have to override the SSL certificates manually.
-
-```
-curl -k -X POST https://localhost:4002/api/Messages -H 'X-IBM-Client-Id: default' -H 'X-IBM-Client-Secret: SECRET' -H 'Content-Type: application/json' -H 'Accept: application/json' -d '{ "greeting": "Hello World" }' -v 
-```
-
-You should see an output that looks something like below which indicates that a message with an ID of 1 was created.
-
-```
-* Closing connection 0
-{"id":1,"greeting":"Hello World"}
-```
-
-You can retrieve the message via the following command.
-
-```
-curl -k --request GET --url 'https://localhost:4002/api/Messages' --header 'accept: application/json' --header 'content-type: application/json' --header 'x-ibm-client-id: default' --header 'x-ibm-client-secret: SECRET'
-```
-
 You can explore further by invoking the following command
 
 ```
