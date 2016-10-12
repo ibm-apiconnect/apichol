@@ -75,14 +75,14 @@ It is recommended that you run through these exercises sequentially since they a
 
 
 - Exercise 1: [Install Node.js and the API Connect toolkit](exercises/ex1)
-- Exercise 2: [Create a Weather API using API Connect on Bluemix](exercises/ex2)
-- Exercise 3: [Design your OpenAPI Swagger specification](exercises/ex3)
-- Exercise 4: [Generate a LoopBack application and import your APIs](exercises/ex4)
-- Exercise 5: [Create a database service on Bluemix](exercises/ex5)
-- Exercise 6: [Create database CRUD APIs with LoopBack models](exercises/ex6)
-- Exercise 7: [Test, Explore and Deploy your LoopBack application](exercises/ex7)
-- Exercise 8: [Explore your deployed APIs with the API Manager on Bluemix](exercises/ex8)
-- Exercise 9: [Generate a Developer Portal for your APIs](exercises/ex9)
+- Exercise 2: [Design your OpenAPI Swagger specification](exercises/ex2)
+- Exercise 3: [Generate a LoopBack application and import your APIs](exercises/ex3)
+- Exercise 4: [Create a database service on Bluemix](exercises/ex4)
+- Exercise 5: [Create database CRUD APIs with LoopBack models](exercises/ex5)
+- Exercise 6: [Test, Explore and Deploy your LoopBack application](exercises/ex6)
+- Exercise 7: [Explore your deployed APIs with the API Manager on Bluemix](exercises/ex7)
+- Exercise 8: [Tour A - Create a Weather API using API Connect on Bluemix](exercises/ex8)
+- Exercise 9: [Tour B - Generate a Developer Portal for your Weather APIs](exercises/ex9)
 
 
 ##More Resources

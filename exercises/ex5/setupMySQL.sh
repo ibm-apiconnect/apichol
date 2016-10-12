@@ -70,25 +70,25 @@ rm -rf commons-cli-1.3.1
 rm commons-cli.tar.gz
 
 echo -e "${delivery}${Yellow}  Compiling Exercise 5 Java Setup, Populate and Query Utility${no_color}"
-javac -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ./ex5.java
+javac -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ./ex4.java
 echo -e "${hourglass}${Green}  Executing utility to see the arguments available ...${no_color}"
-java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex5 -w
+java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex4 -w
 
-echo -e "${eyes}${Green}  Invoking ${Yellow}java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex5 -h ${val1} -u ${val7} -p ${val4} -n ${val5} -d ${val3} -s './setup.sql'${no_color}"
-java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex5 -h "${val1}" -u "${val7}" -p "${val4}" -n "${val5}" -d "${val3}" -s "./remove.sql"
-java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex5 -h "${val1}" -u "${val7}" -p "${val4}" -n "${val5}" -d "${val3}" -s "./setup.sql"
+echo -e "${eyes}${Green}  Invoking ${Yellow}java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex4 -h ${val1} -u ${val7} -p ${val4} -n ${val5} -d ${val3} -s './setup.sql'${no_color}"
+java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex4 -h "${val1}" -u "${val7}" -p "${val4}" -n "${val5}" -d "${val3}" -s "./remove.sql"
+java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex4 -h "${val1}" -u "${val7}" -p "${val4}" -n "${val5}" -d "${val3}" -s "./setup.sql"
 echo -e "${present}${Yellow}  Employees Table Created${no_color}"
 echo -e "\n"
 
-echo -e "${eyes}${Green}  Invoking ${Yellow}java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex5 -h ${val1} -u ${val7} -p ${val4} -n ${val5} -d ${val3} -s './populate.sql'${no_color}"
-java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex5 -h "${val1}" -u "${val7}" -p "${val4}" -n "${val5}" -d "${val3}" -s "./populate.sql"
+echo -e "${eyes}${Green}  Invoking ${Yellow}java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex4 -h ${val1} -u ${val7} -p ${val4} -n ${val5} -d ${val3} -s './populate.sql'${no_color}"
+java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex4 -h "${val1}" -u "${val7}" -p "${val4}" -n "${val5}" -d "${val3}" -s "./populate.sql"
 echo -e "${present}${Yellow}  Employees Table Populated${no_color}"
 echo -e "\n"
 
 echo -e "${delivery}${Green}  Awesome sauce! Let's try to query against the database to confirm that our data is really in there ;-)${no_color}"
-echo -e "${eyes}${Green}  Invoking ${Yellow}java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex5 ${Cyan}--query${Yellow} -h ${val1} -u ${val7} -p ${val4} -n ${val5} -d ${val3} -s './query.sql'${no_color}"
+echo -e "${eyes}${Green}  Invoking ${Yellow}java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex4 ${Cyan}--query${Yellow} -h ${val1} -u ${val7} -p ${val4} -n ${val5} -d ${val3} -s './query.sql'${no_color}"
 echo -e "\n"
-java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex5 -h "${val1}" -u "${val7}" -p "${val4}" -n "${val5}" -d "${val3}" -s "./query.sql" --query > ./results.tsv
+java -cp .:./mysql-connector-java-5.1.39-bin.jar:./commons-cli-1.3.1.jar ex4 -h "${val1}" -u "${val7}" -p "${val4}" -n "${val5}" -d "${val3}" -s "./query.sql" --query > ./results.tsv
 head ./results.tsv
 
 # For more information about Global Read, checkout 

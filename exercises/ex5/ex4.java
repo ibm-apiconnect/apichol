@@ -29,7 +29,7 @@ import org.apache.commons.cli.MissingOptionException;
 import org.apache.commons.cli.MissingArgumentException;
 import org.apache.commons.cli.ParseException;
 
-class ex5 {
+class ex4 {
 
   private static String readFile(String path, Charset encoding) throws IOException 
   {
@@ -42,7 +42,7 @@ class ex5 {
     HelpFormatter formatter = new HelpFormatter();
     String header = "       Options, flags and arguments may be in any order";
     String footer = "Hands On Lab @ JavaOne 2016\nMySQL Setup, Populate and Query Utility.\nCopyright 2016 IBM. License: Apache 2.0";
-    formatter.printHelp("ex5", header, options, footer, true);
+    formatter.printHelp("ex4", header, options, footer, true);
     System.exit(0);
   }
 

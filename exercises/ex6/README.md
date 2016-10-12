@@ -1,6 +1,6 @@
 # API Connect Hands-On Labs
 
-## Exercise 6: Create database CRUD APIs with LoopBack models
+## Exercise 5: Create database CRUD APIs with LoopBack models
 
 ### Prerequisites
 
@@ -8,9 +8,9 @@ To run through this exercise, you will need to have done the following steps:
 
 **Prerequisite 1**: Installed the API Connect toolkit ([Exercise 1](../ex1)).
 
-**Prerequisite 2**: Generated a LoopBack app ([Exercise 4](../ex4)).
+**Prerequisite 2**: Generated a LoopBack app ([Exercise 3](../ex3)).
 
-**Prerequisite 3**: Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../ex5)).
+**Prerequisite 3**: Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 4](../ex4)).
 
 ### Overview of Exercise
 
@@ -18,7 +18,7 @@ In this exercise we will create simple CRUD-based APIs around the `employees` da
 
 ### Ensure that you are in the LoopBack application directory
 
-Ensure that you are in the LoopBack directory you created in [Exercise 4](../ex4)
+Ensure that you are in the LoopBack directory you created in [Exercise 3](../ex3)
 
 ```
 cd <path-to-hol-folder>/apichol/exercises/ex4/loopbackapp
@@ -52,7 +52,7 @@ In the connector tab, choose "MySQL". It'll prompt you to install the connector;
 
 **Work-Around**: If you saw an error, switch back to your terminal. Use `Ctrl+C` to end the `apic edit` instance. This shuts down the API Designer Toolkit.  Then, type the command `npm i --save loopback-connector-mysql` to manually install the LoopBack connector for MySQL databases. Then, run `apic edit` again, switch to the `Databases` tab, open your `mysql-db` entry, and continue below.
 
-Enter the database credentials you noted in [Exercise 5](../ex5). Enter the `uri` credential into the `url` field and your `name` credential into the `Database` field. 
+Enter the database credentials you noted in [Exercise 4](../ex4). Enter the `uri` credential into the `url` field and your `name` credential into the `Database` field. 
 
 <img src="SS4.png"  width="600">
 
@@ -76,4 +76,4 @@ We just created APIs around the `employees` database.
 
 In the next exercise, we will test your new APIs by starting the LoopBack application locally and use an interactive OpenAPI explorer to call your APIs!
 
-Next up, Exercise 7: [Test, Explore and Deploy your LoopBack application](../ex7)
+Next up, Exercise 6: [Test, Explore and Deploy your LoopBack application](../ex6)

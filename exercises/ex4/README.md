@@ -1,6 +1,6 @@
 #API Connect Hands-On Labs
 
-##Exercise 4: Generate a LoopBack application and import your APIs
+##Exercise 3: Generate a LoopBack application and import your APIs
 
 ### Prerequisites
 
@@ -10,10 +10,10 @@ Make sure you've met the following prerequisites.
 
 ### Ensure that you are in the right sub-directory
 
-Ensure that you are in sub-directory ex4.
+Ensure that you are in sub-directory ex3.
 
 ```
-cd <path-to-hol-folder>/exercises/ex4
+cd <path-to-hol-folder>/exercises/ex3
 ```
 ### Overview of exercise
 
@@ -25,7 +25,7 @@ In this exercise, we'll:
 
 ### [LoopBack API](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
 
-We'll first make an empty project directory to contain all of our work for exercise 4.
+We'll first make an empty project directory to contain all of our work for exercise 3.
 
 ```
 mkdir -p ./loopbackapp
@@ -44,7 +44,7 @@ Execute the following command line syntax:
 apic loopback
 ```
 You'll want to give your application a name and select the **empty-server** option to create an empty LoopBack API.<br/>  
-![empty server](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex4/emptyserver.png "Empty Server")
+![empty server](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/emptyserver.png "Empty Server")
 
 This should result in a parade of files being generated within the folder that represents a skeleton LoopBack application.  Next, we'll create an in-memory db datastore.  This db datastore is required to help us test our new Loopback application -- specifically for create operations which use HTTP POST and PUT method calls.  Without a datastore, our application will have no default place to store data sent to it.
 
@@ -63,12 +63,12 @@ You'll be prompted for:
 
 This will update your applications definition file with this new datasource.
 
-![newdatasource](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex4/newdatasource.png "New Datasource")
+![newdatasource](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/newdatasource.png "New Datasource")
 
-Next, we'll import our OpenAPI specification from exercise 3 to shape this application.   To prepare for this, copy the downloaded OpenAPI spec json file obtained from Swagger Editor and place it within the ex4 directory.  As an alternative, you can also copy an unmodified swagger spec file by executing the following command:
+Next, we'll import our OpenAPI specification from exercise 2 to shape this application.   To prepare for this, copy the downloaded OpenAPI spec json file obtained from Swagger Editor and place it within the ex3 sub-directory.  As an alternative, you can also copy an unmodified swagger spec file by executing the following command:
 
 ```
-cp ../../ex3/macreduce.mybluemix.net.json ../swagger.json
+cp ../../ex2/macreduce.mybluemix.net.json ../swagger.json
 ```
 
 Execute the following command:
@@ -87,7 +87,7 @@ A series of menu prompts will display:
     Response: You'll select the default of **db (memory)**
   
 
-![swaggershaping](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex4/swaggershaping.png "Swagger Shaping")
+![swaggershaping](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/swaggershaping.png "Swagger Shaping")
 
 Next, you'll confirm that our datasource is attached to our model using the API Design and Management User interface which exposes concepts such as the underlying API model and registered datasources.  To do this, let's jump into the API Design and Management UI by executing the following command:
 
@@ -96,11 +96,11 @@ apic edit
 ```
 This should result in the API Design and Management UI opening within your default web browser.  You'll need to sign in with your Bluemix account and browse to the Models tab ...
 
-![Models Tab](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex4/editmodel.png "Models tab")
+![Models Tab](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/editmodel.png "Models tab")
 
 and click on our model named `swagger_api_v1`.  This will open the properties view for the model.  Click the dropdown arrow and select the datasource **db**.  Hit the **save icon** in the upper right of the window and then close the browser tab.  You'll also need to break out of the running `apic edit` process within the terminal.
 
-![New Datasource](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex4/setdatasource.png "New Datasource")
+![New Datasource](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/setdatasource.png "New Datasource")
 
 Sweet!  We now have a node application with endpoints defined via our OpenAPI specification.  To test, let's fire up the app:
 
@@ -112,7 +112,7 @@ We'll observe that the application is listening on port 3000.  Using a browser, 
 
 ###Ughh ... a 500 response error.  
 
-![not implemented](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex4/notimplemented.png "not implemented")
+![not implemented](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/notimplemented.png "not implemented")
 
 
 ###Wait, that makes total sense.  We've defined endpoints via a spec but have not implemented any logic around the behavior of the resources.  Let's tackle that next. 
@@ -129,7 +129,7 @@ Within this folder, you'll notice two files:
 1. swagger-api-v-1.js : defines implementation logic for the generated stub APIs generated
 2. swagger-api-v-1.json : defines meta properties about the generated API model
 
-To expedite the logic implementation, a handy uncommented copy of a partially implemented controller file is provided within the ex4 parent folder named **swagger-api-v-1.js.uncommented**.  While in the project folder loopbackapp folder, execute the following command to replace the existing controller with this partial implementation:
+To expedite the logic implementation, a handy uncommented copy of a partially implemented controller file is provided within the ex3 parent folder named **swagger-api-v-1.js.uncommented**.  While in the project folder loopbackapp folder, execute the following command to replace the existing controller with this partial implementation:
 
 ```
 cp ../swagger-api-v-1.js.uncommented server/models/swagger-api-v-1.js
@@ -142,7 +142,7 @@ This partial implementation enables four (4) of the OpenAPI specification entrie
 - **GET** and **POST** on  `/mac`
 - **GET** and **DELETE** `/mac/{macId}`
  
-If you're curious, we've also provided for comparison and inspection, a commented copy in the ex4 directory. (`../swagger-api-v-1.js.commented`).  
+If you're curious, we've also provided for comparison and inspection, a commented copy in the ex3 directory. (`../swagger-api-v-1.js.commented`).  
 
 Let's fire up our Loopback Application based on Swagger once again ... and try to populate it with some data.
 
@@ -158,14 +158,14 @@ curl -X POST -H "Content-Type: application/json" -d "{\"organization\":\"IBM Cor
 
 If all went well, you should receive a response within your terminal from your node backend API server that looks similar to:
 
-![Successful Post](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex4/successfulpost.png "Successful Post")
+![Successful Post](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/successfulpost.png "Successful Post")
 
 
 While it continues to run, let's now fetch a record associated with an ID=2.  Navigate your browser to [http://localhost:3000/api/api/v1/mac/2](http://localhost:3000/api/api/v1/mac/2)
 
 The result should look similar to this:
 
-![Successful Get](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex4/successfulget.png "Successful Get")
+![Successful Get](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/successfulget.png "Successful Get")
 
 Awesome sauce!  Go ahead and kill the running node process within your terminal and change directories to exercise 5.
 
@@ -173,4 +173,4 @@ Awesome sauce!  Go ahead and kill the running node process within your terminal 
 
 You've now walked through the process of quickly creating a REST API Loopback Application shaped by an OpenAPI (swagger) specification.  You also learned how to modify the generated backend Loopback application to partially implement support for a couple of HTTP method types (GET and POST).
 <p>
-In [Exercise 5](../ex5) we'll learn how to easily create and populate a MySQL database service instance as a building block towards our ultimate goal of establishing API operations that support Create, Read, Update and Delete (CRUD) methods.
+In [Exercise 4](../ex4) we'll learn how to easily create and populate a MySQL database service instance as a building block towards our ultimate goal of establishing API operations that support Create, Read, Update and Delete (CRUD) methods.

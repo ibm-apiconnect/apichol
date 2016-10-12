@@ -1,6 +1,6 @@
 #API Connect Hands-On Labs
 
-##Exercise 5: Create a database service on Bluemix
+##Exercise 4: Create a database service on Bluemix
 
 ### Prerequisites
 
@@ -10,10 +10,10 @@ Make sure you've met the following prerequisites.
 
 ### Ensure that you are in the right sub-directory
 
-Ensure that you are in sub-directory ex5.
+Ensure that you are in sub-directory ex4.
 
 ```
-cd <path-to-hol-folder>/exercises/ex5
+cd <path-to-hol-folder>/exercises/ex4
 ```
 
 ### Verify your Target within Bluemix instance
@@ -46,7 +46,7 @@ Although the API is based around a simple `employees` database, you can follow s
 
 IBM Bluemix offers a wide array of data service options that are just a few clicks/commands away.
 
-![Service catalog](../../images/ex5/datasvc_catalog.png)
+![Service catalog](../../images/ex4/datasvc_catalog.png)
 
 For this exercise, we'll be instantiating a MySQL database service offered on the Bluemix platform.  MySQL is an open-source relational database management system (RDBMS).
 
@@ -193,7 +193,7 @@ To make things smoother, we've provided a convenient set of scripts and a CLI Ja
 -  Using Java Code with the MySQL Connector jar to connect to an IBM Bluemix db service
 -  Using Bash/Shell scripting techniques to harvest db service credentials using the cf CLI
 
-You're encouraged to inspect the **ex5.java**, **setupMySQL.sh** and **svcinspect.sh** files found within this directory that help put these concepts into action.  Assuming that your ClearDB MySQL service is named **workshopmysql**, execute the following command.  Otherwise, substitute your alternate ClearDB MySQL service instance name as appropriate:
+You're encouraged to inspect the **ex4.java**, **setupMySQL.sh** and **svcinspect.sh** files found within this directory that help put these concepts into action.  Assuming that your ClearDB MySQL service is named **workshopmysql**, execute the following command.  Otherwise, substitute your alternate ClearDB MySQL service instance name as appropriate:
 
 ```
 ./setupMySQL.sh workshopmysql
@@ -224,9 +224,9 @@ Your output should look similar to:
 
 ⇌  Fetching commons-cli-1.3.1.jar from http://.../commons-cli-1.3.1-bin.tar.gz
 2016-09-15 23:22:22 URL:http://.../commons-cli-1.3.1-bin.tar.gz [305600/305600] -> "commons-cli.tar.gz" [1]
-🚚  Compiling Exercise 5 Java Setup, Populate and Query Utility
+🚚  Compiling Exercise 4 Java Setup, Populate and Query Utility
 ⏳  Executing utility to see the arguments available ...
-usage: ex5 [-d <dbname>] [-h <host>] [-n <port>] [-p <password>] [--query]
+usage: ex4 [-d <dbname>] [-h <host>] [-n <port>] [-p <password>] [--query]
        [-s <sql>] [-u <username>] [-w <wanthelp>]
        Options, flags and arguments may be in any order
 
@@ -260,4 +260,4 @@ Sweet! That's it!  We can all agree, that was pretty simple to standup a MySQL D
 
 We started with a goal of instantiating a MySQL DB and getting it populated with some sample data.  We learned about available IBM Bluemix DB services, the required details for creating a MySQL DB instance and the use of a simple Java program that consumes the generated credentials to facilitate connecting and populating the new MySQL DB instance.
 
-In [Exercise 6](../ex6), we will dive into creation of database CRUD APIs that leverage this just populated DB.
+In [Exercise 5](../ex5), we will dive into creation of database CRUD APIs that leverage this just populated DB.

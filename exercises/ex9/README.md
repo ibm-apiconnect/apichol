@@ -1,6 +1,6 @@
 #API Connect Hands-On Labs
 
-##Exercise 9: Generate a Developer Portal for your APIs
+##Exercise 9: Tour B - Generate a Developer Portal for your APIs
 
 ### Prerequisites
 
@@ -10,8 +10,7 @@ Make sure you've met the following prerequisites.
 
 ### Overview of exercise
 
-We will pick up from where we left off at exercise 2.
-We followed the "Getting Started" tour to use the API Connect manager and invoke the APIs within the API Connect manager.
+We followed the "Getting Started" tour to use the API Connect manager and invoke the APIs within the API Connect manager. We will pick up from where we left off at the previous exercise. 
 
 In this exercise, we will publish the APIs, with an associated plan and so on to a self-service developer portal which is an adjunct to the Bluemix API Connect service. These APIs can be invoked by any REST-based client.
 

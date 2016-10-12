@@ -1,6 +1,6 @@
 # API Connect Hands-On Labs
 
-## Exercise 7: Test, Explore and Deploy your LoopBack application
+## Exercise 6: Test, Explore and Deploy your LoopBack application
 
 ### Prerequisites
 
@@ -8,11 +8,11 @@ To run through this exercise, you will need to have done the following steps:
 
 **Prerequisite 1**: Installed the API Connect toolkit ([Exercise 1](../ex1)).
 
-**Prerequisite 2**: Generated a LoopBack app ([Exercise 4](../ex4)).
+**Prerequisite 2**: Generated a LoopBack app ([Exercise 3](../ex3)).
 
-**Prerequisite 3**: Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 5](../ex5)).
+**Prerequisite 3**: Created a database service on Bluemix and connected it to your LoopBack app ([Exercise 4](../ex4)).
 
-**Prerequisite 4**: Created database CRUD APIs in the API Designer ([Exercise 6](../ex6)).
+**Prerequisite 4**: Created database CRUD APIs in the API Designer ([Exercise 5](../ex5)).
 
 ### Overview of Exercise
 
@@ -20,7 +20,7 @@ In this exercise we will test the APIs created in the previous exercise, explore
 
 ### Ensure that you are in the LoopBack application directory
 
-Ensure that you are in the LoopBack directory you created in [Exercise 4](../ex4).
+Ensure that you are in the LoopBack directory you created in [Exercise 3](../ex3).
 
 ```
 cd <path-to-loopback-folder>
@@ -46,7 +46,7 @@ On the bottom left of the API Designer, hit the `Play` button to start your appl
 
 <img src="SS1.png"  width="800">
 
-The application link corresponds to the LoopBack application you created in the earlier exercises. It hosts the CRUD APIs you created in [exercise 6](../exercises/ex6). The Micro Gateway link corresponds to a fully-featured API gateway which proxies requests to your LoopBack application, allowing you test your gateway policies.
+The application link corresponds to the LoopBack application you created in the earlier exercises. It hosts the CRUD APIs you created in [exercise 5](../exercises/ex5). The Micro Gateway link corresponds to a fully-featured API gateway which proxies requests to your LoopBack application, allowing you test your gateway policies.
 
 ### Test and Explore your Swagger-based APIs
 
@@ -56,7 +56,7 @@ On the top right of the `API Designer`, hit the `Explore` button. This takes you
 
 <img src="SS2.png"  width="800">
 
-Along the left side, you should see a number of operations for the `Employee` model you created in [exercise 6](../exercises/ex6). Let's try calling a series of these operations.
+Along the left side, you should see a number of operations for the `Employee` model you created in [exercise 5](../exercises/ex5). Let's try calling a series of these operations.
 
 #### GET /Employees
 
@@ -132,4 +132,4 @@ In this exercise we explored, tested and deployed the application to Bluemix.
 
 In the next two exercises, we'll explain how you can test your APIs and create a developer portal so others can consume your APIs.
 
-Next up, Exercise 8: [Explore your deployed APIs with the API Manager on Bluemix](../ex8)
+Next up, Exercise 7: [Explore your deployed APIs with the API Manager on Bluemix](../ex7)

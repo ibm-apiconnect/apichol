@@ -1,6 +1,6 @@
 #API Connect Hands-On Labs
 
-##Exercise 3: Design your OpenAPI Swagger specification
+##Exercise 2: Design your OpenAPI Swagger specification
 
 ### Prerequisites
 
@@ -10,10 +10,10 @@ Make sure you've met the following prerequisites.
 
 ### Ensure that you are in the right sub-directory
 
-Ensure that you are in sub-directory ex3.
+Ensure that you are in sub-directory ex2.
 
 ```
-cd <path-to-hol-folder>/exercises/ex3
+cd <path-to-hol-folder>/exercises/ex2
 ```
 
 ### Overview of exercise
@@ -35,16 +35,16 @@ The Open API Specification (formerly known as the Swagger specification) is the 
 - BENEFITS:  With a OpenAPI specifcation, you'll be able to generate client libraries in lots of runtime languages, generate server stubs, import these definitions into API management tools such as Bluemix APIConnect and use tools to verify conformance. 
 
 ### [Swagger Editor](http://editor.swagger.io/#/)
-Swagger Editor at [http://editor.swagger.io/#/](http://editor.swagger.io/#/) is a handy open source web application that lets you quickly edit OpenAPI Swagger specifications in YAML or JSON.  You can import or create custom specifications within a browser.  We'll use this hosted editor and a Swagger JSON specification **macreduce.mybluemix.net.json** located within the ex3 sub-directory to illustrate the use of the editor and how it can be used to design/modify a Swagger specification.
+Swagger Editor at [http://editor.swagger.io/#/](http://editor.swagger.io/#/) is a handy open source web application that lets you quickly edit OpenAPI Swagger specifications in YAML or JSON.  You can import or create custom specifications within a browser.  We'll use this hosted editor and a Swagger JSON specification **macreduce.mybluemix.net.json** located within the ex2 sub-directory to illustrate the use of the editor and how it can be used to design/modify a Swagger specification.
 
 #### Exploring an OpenAPI (Swagger) 2.0 Specification
 
-1.  Browse to [Swagger Editor](http://editor.swagger.io/#/) and click on the File menu choice **Import File...** .  You will select the macreduce.mybluemix.net.yaml file found within your ex3 sub-directory.     <br/><br/>     ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/swaggerspec_import.png)
+1.  Browse to [Swagger Editor](http://editor.swagger.io/#/) and click on the File menu choice **Import File...** .  You will select the macreduce.mybluemix.net.yaml file found within your ex2 sub-directory.     <br/><br/>     ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/swaggerspec_import.png)
 
-    ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/importfile.png) 
+    ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/importfile.png) 
 2.  After import, you should see a split pane view with the raw text Swagger spec on the left and a rendered view on the right. <br/>
     
-    ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/macreduce.png) 
+    ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/macreduce.png) 
 3.  We will now make a modification to the existing swagger specification.  Browse to the section of the spec that looks similiar to: 
 ```
   '/mac/{macId}':
@@ -83,7 +83,7 @@ We will add an expected response to document the API's behavior when attempting 
   -  paths
   -  content-types (application/json, application/xml, ...)
 
-4.  Click on the File menu choice **Download JSON** to obtain a local copy of your newly modified OpenAPI Swagger 2.0 specification.     <br/><br/>     ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/downloadjson.png) 
+4.  Click on the File menu choice **Download JSON** to obtain a local copy of your newly modified OpenAPI Swagger 2.0 specification.     <br/><br/>     ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/downloadjson.png) 
 5.  As you can see, Swagger Editor is a great tool for modifying existing OpenAPI specifications and/or creating brand new specifications.  
 
 ### [Open API Spec Explorer and Designer](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
@@ -98,17 +98,17 @@ This should result in the API Designer opening within your default web browser.
 
 Our next step is to import the OpenAPI specification into API Designer.  To accomplish this, click on the **+ Add** link and select the Import OpenAPI choice
 <br/><br/>
-![importopenapi](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/importopenapi.png)
+![importopenapi](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/importopenapi.png)
 
 You will want to browse to the location where you downloaded the swagger.json file created from Swagger editor and click on the **Import** button.
 
 This should cause focus on the API Design tab with various fields populated via data found within the OpenAPI specification file.  Feel free to explore the various section links on the left to get a feel for design options available to you.
 <br/><br/>
-![apidesignview](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/apidesignview.png)
+![apidesignview](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/apidesignview.png)
 
 It is also worth noting that if you already possess an existing backend API application, you can publish this Open API (Swagger) specification to Bluemix whereby the platform would then manage your existing APIs for you.  Platforms such as Bluemix are great at providing analytics, gateway, security, authentication and user management facilities for your API needs.
 
 ### Summary of exercise and next steps
 We've now learned quite a bit.  We know what an Open API (Swagger) specification is, how its used and what is its composition.  We've explored a couple of tools that assist us with Open API design, composition and management.
 
-In [Exercise 4](../ex4), we'll create a Loopback Application against these defined APIs.  Having a backend application takes the conceptual descriptions within the spec and makes them concrete (e.g. Functional Create, Read, Update and Delete API endpoints).
+In [Exercise 3](../ex3), we'll create a Loopback Application against these defined APIs.  Having a backend application takes the conceptual descriptions within the spec and makes them concrete (e.g. Functional Create, Read, Update and Delete API endpoints).

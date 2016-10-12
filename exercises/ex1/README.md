@@ -269,4 +269,5 @@ We will dive into API Connect in the subsequent exercises.
 
 After installing all the prerequisites, we explored how to target a Bluemix/Cloud Foundry instance and use the API connect product locally.
 
-Next we will look into how to use the API connect Manager on Bluemix which provide an interface similar to what we saw locally. We will go through the `Getting Started` tour which will give us a good idea of the different artifacts and how they are connected in [Exercise 2](../ex2).
+In [Exercise 2](../ex2) we will look at how to use the OpenAPI specification (swagger) editor.
+
