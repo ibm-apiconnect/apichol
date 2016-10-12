@@ -1,146 +1,114 @@
 #API Connect Hands-On Labs
 
-##Exercise 8: Tour A - Create a Weather API using API Connect on Bluemix
+##Exercise 2: Design your OpenAPI Swagger specification
 
 ### Prerequisites
 
+Make sure you've met the following prerequisites.
+
 **Prerequisite 1**: Installed the API Connect toolkit ([Exercise 1](../ex1)).
+
+### Ensure that you are in the right sub-directory
+
+Ensure that you are in sub-directory ex2.
+
+```
+cd <path-to-hol-folder>/exercises/ex2
+```
 
 ### Overview of exercise
 
-In this exercise, we will now look at how to use the API Connect service as a service on Bluemix. The service provides an API connect manager which provides the same tasks that were available via the API Connect GUI locally, but on the cloud. We will primarily follow the "Getting Started Tour" in this and the following exercise.
+For this exercise, we'll:
 
-The service also enables publication of the APIs to a developer portal which will be covered in the subsequent exercise.
+1. Learn about the OpenAPI Specification (Swagger Specification) 2.0 and its components
+2. Learn how to use Swagger Editor to design and modify an existing Swagger JSON specification of an API
+3. Learn how to import an OpenAPI Specification into API Designer for further editing
 
-### Login to Bluemix and instantiate the API Connect Service
+### [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (Current Version: 2.0)
+The Open API Specification (formerly known as the Swagger specification) is the industry standard for defining REST APIs.  The goal of the OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
 
-Login to Bluemix by providing the credentials that you used during the registration process.
+<blockquote>OpenAPI specs remove the guesswork in calling a given service</blockquote>
 
-<!--<img src="../../images/ex8/LoginBluemix.jpeg"  width="400">-->
-![](../../images/ex8/LoginBluemix.jpeg "")
+#### [OpenAPI Components](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
 
-Once logged in, click on `Catalog` tab.
+- FORMAT:  The files describing the RESTful API in accordance with the Swagger specification are represented as **JSON objects** and conform to the JSON standards. YAML, being a superset of JSON, can be used as well to represent a Swagger specification file.
+- BENEFITS:  With a OpenAPI specifcation, you'll be able to generate client libraries in lots of runtime languages, generate server stubs, import these definitions into API management tools such as Bluemix APIConnect and use tools to verify conformance. 
 
-<!--<img src="../../images/ex8/BluemixCatalog.jpeg"  width="400">-->
-![](../../images/ex8/BluemixCatalog.jpeg "")
+### [Swagger Editor](http://editor.swagger.io/#/)
+Swagger Editor at [http://editor.swagger.io/#/](http://editor.swagger.io/#/) is a handy open source web application that lets you quickly edit OpenAPI Swagger specifications in YAML or JSON.  You can import or create custom specifications within a browser.  We'll use this hosted editor and a Swagger JSON specification **macreduce.mybluemix.net.json** located within the ex2 sub-directory to illustrate the use of the editor and how it can be used to design/modify a Swagger specification.
 
-Pick the API Connect service tile
+#### Exploring an OpenAPI (Swagger) 2.0 Specification
 
-<!--<img src="../../images/ex8/APIConnect.jpeg"  width="400">-->
-![](../../images/ex8/APIConnect.jpeg "")
+1.  Browse to [Swagger Editor](http://editor.swagger.io/#/) and click on the File menu choice **Import File...** .  You will select the macreduce.mybluemix.net.yaml file found within your ex2 sub-directory.     <br/><br/>     ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/swaggerspec_import.png)
 
-Pick the defaults for the service
+    ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/importfile.png) 
+2.  After import, you should see a split pane view with the raw text Swagger spec on the left and a rendered view on the right. <br/>
+    
+    ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/macreduce.png) 
+3.  We will now make a modification to the existing swagger specification.  Browse to the section of the spec that looks similiar to: 
+```
+  '/mac/{macId}':
+      get:
+        summary: Retrieves a Mac document
+        responses:
+          '200':
+            description: Mac document fetched successfully
+        parameters:
+          - in: path
+            name: macId
+  [...]
+```
 
-<!--<img src="../../images/ex8/APIConnectService.jpeg"  width="400">-->
-![](../../images/ex8/APIConnectService.jpeg "")
+We will add an expected response to document the API's behavior when attempting to fetch a non-existent macId resource.  Add two lines just above the parameters section so that it now looks like this:
 
-You will presented tith a Drafts API screen that looks like below.
+```
+  '/mac/{macId}':
+      get:
+        summary: Retrieves a Mac document
+        responses:
+          '200':
+            description: Mac document fetched successfully
+          '404':
+            description: Mac document not found
+        parameters:
+          - in: path
+            name: macId
+ [...]
+```
+  The specification provides a wide variety of data elements to facilitate describing your API set.  As you inspect your OpenAPI specification file, some important elements to consider include: 
 
-<!--<img src="../../images/ex8/DraftsAPI.jpeg"  width="400">-->
-![](../../images/ex8/DraftsAPI.jpeg "")
+  -  method types (get, post, delete, ...)
+  -  responses (200, 400, 404, ...)
+  -  parameters
+  -  paths
+  -  content-types (application/json, application/xml, ...)
 
-Click on "Got it" and proceed.
+4.  Click on the File menu choice **Download JSON** to obtain a local copy of your newly modified OpenAPI Swagger 2.0 specification.     <br/><br/>     ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/downloadjson.png) 
+5.  As you can see, Swagger Editor is a great tool for modifying existing OpenAPI specifications and/or creating brand new specifications.  
 
-You will be presented with the Drafts screen that looks like below with the `Getting Started` window on the top right as shown below.
+### [Open API Spec Explorer and Designer](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
 
-<!--<img src="../../images/ex8/GettingStarted.jpeg"  width="400">-->
-![](../../images/ex8/GettingStarted.jpeg "")
+To open the API Designer, on the command line enter:
 
-If you do not see the "Getting Started" window at any time, **click on ? and "Turn on Guided Tour"** as shown below.
+```
+SKIP_LOGIN=true apic edit
+```
 
-<!--<img src="../../images/ex8/TurnOnGuidedTour.jpeg"  width="400">-->
-![](../../images/ex8/TurnOnGuidedTour.jpeg "")
+This should result in the API Designer opening within your default web browser.
 
-We will follow the "Getting Started" tour essentially from now on.
+Our next step is to import the OpenAPI specification into API Designer.  To accomplish this, click on the **+ Add** link and select the Import OpenAPI choice
+<br/><br/>
+![importopenapi](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/importopenapi.png)
 
-### A tour of the API Connect Manager via the sample Weather API
+You will want to browse to the location where you downloaded the swagger.json file created from Swagger editor and click on the **Import** button.
 
-We start off by clicking on "Import API" in the "Getting Started" window and "Import a Sample API" as prompted.
+This should cause focus on the API Design tab with various fields populated via data found within the OpenAPI specification file.  Feel free to explore the various section links on the left to get a feel for design options available to you.
+<br/><br/>
+![apidesignview](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/apidesignview.png)
 
-As indicated before, if you do not have the `Getting Started` window on top right, **click on ? and "Turn on Guided Tour"**
-
-<!--<img src="../../images/ex8/ImportSample.jpeg"  width="400">-->
-![](../../images/ex8/ImportSample.jpeg "")
-
-In the Dialog box shown below pick the "Climbing Weather" project and hit "Import" as shown below.
-
-<!--<img src="../../images/ex8/ImportSampleDialog.jpeg"  width="400">-->
-![](../../images/ex8/ImportSampleDialog.jpeg "")
-
-This will prompt you about the "API Editor" as shown below. Hit "Got it!".
-
-<!--<img src="../../images/ex8/APIEditor.jpeg"  width="400">-->
-![](../../images/ex8/APIEditor.jpeg "")
-
-This will bring up the Design view similar to what you saw earlier, this time on Bluemix.
-
-<!--<img src="../../images/ex8/DesignView.jpeg"  width="400">-->
-![](../../images/ex8/DesignView.jpeg "")
-
-Scroll down to the `getWeather` method which looks like below.
-
-<!--<img src="../../images/ex8/GetWeather.jpeg"  width="400">-->
-![](../../images/ex8/GetWeather.jpeg "")
-
-Click "Generate and Publish" in the "Getting Started" window picking "Generate a Default Product" as shown below.
-
-<!--<img src="../../images/ex8/GenerateDefaultProduct.jpeg"  width="400">-->
-![](../../images/ex8/GenerateDefaultProduct.jpeg "")
-
-You will see that a default plan will be used and that you will publish the product to the Sandbox catalog. Click on "Generate" as shown below.
-
-<!--<img src="../../images/ex8/GenerateNewProduct.jpeg"  width="400">-->
-![](../../images/ex8/GenerateNewProduct.jpeg "")
-
-Next, click "Explore" in the "Getting Started" window as shown below.
-
-<!--<img src="../../images/ex8/Explore.jpeg"  width="400">-->
-![](../../images/ex8/Explore.jpeg "")
-
-Pick "Sandbox" as prompted and as whown below.
-
-<!--<img src="../../images/ex8/ExploreSandbox.jpeg"  width="400">-->
-![](../../images/ex8/ExploreSandbox.jpeg "")
-
-You will see the sample API as shown below.
-
-<!--<img src="../../images/ex8/ClimbingWeatherAPI.jpeg"  width="400">-->
-![](../../images/ex8/ClimbingWeatherAPI.jpeg "")
-
-We will invoke the API by providing the following APIs to country code and zip. Feel free to substitute values.
-
-<!--<img src="../../images/ex8/CountryZip.jpeg"  width="400">-->
-![](../../images/ex8/CountryZip.jpeg "")
-
-If the call succeeds, you should see a response that looks like below with the weather data for the country and zip code.
-
-<!--<img src="../../images/ex8/RequestResponse.jpeg"  width="400">-->
-![](../../images/ex8/RequestResponse.jpeg "")
-
-If the call fails as shown below, click on the link and accept the certificates (we're overriding the Cross-Origin Resource Sharing - CORS error)
-
-The following screen shots walks through how to ovveride this via a series of dialog boxes. This might be different based on the browser, the URL and the error but is illustrated below
-
-<!--<img src="../../images/ex8/CORSError.jpeg"  width="400">-->
-![](../../images/ex8/CORSError.jpeg "")
-
-![](../../images/ex8/CORSError2.jpeg "")
-![](../../images/ex8/ConnectionNotSecure.jpeg "")
-![](../../images/ex8/ConnectionInSecure.jpeg "")
-![](../../images/ex8/ConfirmSecurityException.jpeg "")
-
-
-You can click "Test" on the "Getting Started" window and finally on "Analytics" which should result in something like below.
-
-<!--<img src="../../images/ex8/Analytics.jpeg"  width="400">-->
-![](../../images/ex8/Analytics.jpeg "")
-
-Which should show the usage statistics for the product.
+It is also worth noting that if you already possess an existing backend API application, you can publish this Open API (Swagger) specification to Bluemix whereby the platform would then manage your existing APIs for you.  Platforms such as Bluemix are great at providing analytics, gateway, security, authentication and user management facilities for your API needs.
 
 ### Summary of exercise and next steps
+We've now learned quite a bit.  We know what an Open API (Swagger) specification is, how its used and what is its composition.  We've explored a couple of tools that assist us with Open API design, composition and management.
 
-We started with the API connect product locally in an exercise and looked at how to use the same service on Bluemix via the Sample. In a later exercise, we will publish the product to a developer portal that is an adjunct service with the API connect service on Bluemix.
-
-In the next exercises, we'll create a developer portal so others can consume your APIs.
-
-Next up, Exercise 9: [Generate a Developer Portal for your APIs](../ex9)
+In [Exercise 3](../ex3), we'll create a Loopback Application against these defined APIs.  Having a backend application takes the conceptual descriptions within the spec and makes them concrete (e.g. Functional Create, Read, Update and Delete API endpoints).

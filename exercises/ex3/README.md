@@ -1,114 +1,176 @@
 #API Connect Hands-On Labs
 
-##Exercise 2: Design your OpenAPI Swagger specification
+##Exercise 3: Generate a LoopBack application and import your APIs
 
 ### Prerequisites
 
 Make sure you've met the following prerequisites.
 
-**Prerequisite 1**: Installed the API Connect toolkit ([Exercise 1](../ex1)).
+**Prerequisite 1** Installed the API Connect toolkit ([Exercise 1](../ex1))
 
 ### Ensure that you are in the right sub-directory
 
-Ensure that you are in sub-directory ex2.
+Ensure that you are in sub-directory ex3.
 
 ```
-cd <path-to-hol-folder>/exercises/ex2
+cd <path-to-hol-folder>/exercises/ex3
 ```
-
 ### Overview of exercise
 
-For this exercise, we'll:
+In this exercise, we'll:
 
-1. Learn about the OpenAPI Specification (Swagger Specification) 2.0 and its components
-2. Learn how to use Swagger Editor to design and modify an existing Swagger JSON specification of an API
-3. Learn how to import an OpenAPI Specification into API Designer for further editing
+1. Learn about how to create a LoopBack application
+2. Learn how to consume an OpenAPI specification and shape a backend LoopBack application's behavior
+3. Learn how to implement basic behavior around the imported API design
 
-### [OpenAPI](https://github.com/OAI/OpenAPI-Specification) (Current Version: 2.0)
-The Open API Specification (formerly known as the Swagger specification) is the industry standard for defining REST APIs.  The goal of the OpenAPI Specification is to define a standard, language-agnostic interface to REST APIs which allows both humans and computers to discover and understand the capabilities of the service without access to source code, documentation, or through network traffic inspection. When properly defined via OpenAPI, a consumer can understand and interact with the remote service with a minimal amount of implementation logic.
+### [LoopBack API](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
 
-<blockquote>OpenAPI specs remove the guesswork in calling a given service</blockquote>
-
-#### [OpenAPI Components](https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md)
-
-- FORMAT:  The files describing the RESTful API in accordance with the Swagger specification are represented as **JSON objects** and conform to the JSON standards. YAML, being a superset of JSON, can be used as well to represent a Swagger specification file.
-- BENEFITS:  With a OpenAPI specifcation, you'll be able to generate client libraries in lots of runtime languages, generate server stubs, import these definitions into API management tools such as Bluemix APIConnect and use tools to verify conformance. 
-
-### [Swagger Editor](http://editor.swagger.io/#/)
-Swagger Editor at [http://editor.swagger.io/#/](http://editor.swagger.io/#/) is a handy open source web application that lets you quickly edit OpenAPI Swagger specifications in YAML or JSON.  You can import or create custom specifications within a browser.  We'll use this hosted editor and a Swagger JSON specification **macreduce.mybluemix.net.json** located within the ex2 sub-directory to illustrate the use of the editor and how it can be used to design/modify a Swagger specification.
-
-#### Exploring an OpenAPI (Swagger) 2.0 Specification
-
-1.  Browse to [Swagger Editor](http://editor.swagger.io/#/) and click on the File menu choice **Import File...** .  You will select the macreduce.mybluemix.net.yaml file found within your ex2 sub-directory.     <br/><br/>     ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/swaggerspec_import.png)
-
-    ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/importfile.png) 
-2.  After import, you should see a split pane view with the raw text Swagger spec on the left and a rendered view on the right. <br/>
-    
-    ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/macreduce.png) 
-3.  We will now make a modification to the existing swagger specification.  Browse to the section of the spec that looks similiar to: 
-```
-  '/mac/{macId}':
-      get:
-        summary: Retrieves a Mac document
-        responses:
-          '200':
-            description: Mac document fetched successfully
-        parameters:
-          - in: path
-            name: macId
-  [...]
-```
-
-We will add an expected response to document the API's behavior when attempting to fetch a non-existent macId resource.  Add two lines just above the parameters section so that it now looks like this:
+We'll first make an empty project directory to contain all of our work for exercise 3.
 
 ```
-  '/mac/{macId}':
-      get:
-        summary: Retrieves a Mac document
-        responses:
-          '200':
-            description: Mac document fetched successfully
-          '404':
-            description: Mac document not found
-        parameters:
-          - in: path
-            name: macId
- [...]
-```
-  The specification provides a wide variety of data elements to facilitate describing your API set.  As you inspect your OpenAPI specification file, some important elements to consider include: 
-
-  -  method types (get, post, delete, ...)
-  -  responses (200, 400, 404, ...)
-  -  parameters
-  -  paths
-  -  content-types (application/json, application/xml, ...)
-
-4.  Click on the File menu choice **Download JSON** to obtain a local copy of your newly modified OpenAPI Swagger 2.0 specification.     <br/><br/>     ![swagger](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/downloadjson.png) 
-5.  As you can see, Swagger Editor is a great tool for modifying existing OpenAPI specifications and/or creating brand new specifications.  
-
-### [Open API Spec Explorer and Designer](https://console.ng.bluemix.net/docs/services/apiconnect/apic_003.html#apic_009)
-
-To open the API Designer, on the command line enter:
-
-```
-SKIP_LOGIN=true apic edit
+mkdir -p ./loopbackapp
 ```
 
-This should result in the API Designer opening within your default web browser.
+Next, navigate within the empty loopbackapp folder by typing the following:
 
-Our next step is to import the OpenAPI specification into API Designer.  To accomplish this, click on the **+ Add** link and select the Import OpenAPI choice
-<br/><br/>
-![importopenapi](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/importopenapi.png)
+```
+cd loopbackapp
+```
 
-You will want to browse to the location where you downloaded the swagger.json file created from Swagger editor and click on the **Import** button.
+Next, we'll leverage the **apic** binary to create a Loopback Application project.
+Execute the following command line syntax:
 
-This should cause focus on the API Design tab with various fields populated via data found within the OpenAPI specification file.  Feel free to explore the various section links on the left to get a feel for design options available to you.
-<br/><br/>
-![apidesignview](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex2/apidesignview.png)
+```
+apic loopback
+```
+You'll want to give your application a name and select the **empty-server** option to create an empty LoopBack API.<br/>  
+![empty server](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/emptyserver.png "Empty Server")
 
-It is also worth noting that if you already possess an existing backend API application, you can publish this Open API (Swagger) specification to Bluemix whereby the platform would then manage your existing APIs for you.  Platforms such as Bluemix are great at providing analytics, gateway, security, authentication and user management facilities for your API needs.
+This should result in a parade of files being generated within the folder that represents a skeleton LoopBack application.  Next, we'll create an in-memory db datastore.  This db datastore is required to help us test our new Loopback application -- specifically for create operations which use HTTP POST and PUT method calls.  Without a datastore, our application will have no default place to store data sent to it.
 
-### Summary of exercise and next steps
-We've now learned quite a bit.  We know what an Open API (Swagger) specification is, how its used and what is its composition.  We've explored a couple of tools that assist us with Open API design, composition and management.
+Execute the following command:
 
-In [Exercise 3](../ex3), we'll create a Loopback Application against these defined APIs.  Having a backend application takes the conceptual descriptions within the spec and makes them concrete (e.g. Functional Create, Read, Update and Delete API endpoints).
+```
+apic create --type datasource
+```
+
+You'll be prompted for:
+
+1.  A data-source name.  Enter **db**.
+2.  A connector for the db:  select the default selection of **In-memory db**.  
+3.  A window.localStorage key for persistence. Accept the default of blank.
+4.  A full path to file for persistence.  Accept the default of blank. 
+
+This will update your applications definition file with this new datasource.
+
+![newdatasource](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/newdatasource.png "New Datasource")
+
+Next, we'll import our OpenAPI specification from exercise 2 to shape this application.   To prepare for this, copy the downloaded OpenAPI spec json file obtained from Swagger Editor and place it within the ex3 sub-directory.  As an alternative, you can also copy an unmodified swagger spec file by executing the following command:
+
+```
+cp ../../ex2/macreduce.mybluemix.net.json ../swagger.json
+```
+
+Execute the following command:
+
+```
+apic loopback:swagger
+```
+
+A series of menu prompts will display:
+
+1.  Prompt: A local path or remote url to your OpenAPI specification file.  
+    Response: Enter a path to the json file that you copied in an earlier step (e.g. **../swagger.json**).
+2.  Prompt: Selection of the models to be generated.  
+    Response:  You'll select the default of **swagger_api_v1**.
+3.  Prompt: Selection of the data-source to attach models to.  
+    Response: You'll select the default of **db (memory)**
+  
+
+![swaggershaping](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/swaggershaping.png "Swagger Shaping")
+
+Next, you'll confirm that our datasource is attached to our model using the API Design and Management User interface which exposes concepts such as the underlying API model and registered datasources.  To do this, let's jump into the API Design and Management UI by executing the following command:
+
+```
+apic edit
+```
+This should result in the API Design and Management UI opening within your default web browser.  You'll need to sign in with your Bluemix account and browse to the Models tab ...
+
+![Models Tab](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/editmodel.png "Models tab")
+
+and click on our model named `swagger_api_v1`.  This will open the properties view for the model.  Click the dropdown arrow and select the datasource **db**.  Hit the **save icon** in the upper right of the window and then close the browser tab.  You'll also need to break out of the running `apic edit` process within the terminal.
+
+![New Datasource](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/setdatasource.png "New Datasource")
+
+Sweet!  We now have a node application with endpoints defined via our OpenAPI specification.  To test, let's fire up the app:
+
+```
+node .
+```
+
+We'll observe that the application is listening on port 3000.  Using a browser, let's navigate to the following url:  [http://127.0.0.1:3000/api/api/v1/mac](http://127.0.0.1:3000/api/api/v1/mac) .
+
+###Ughh ... a 500 response error.  
+
+![not implemented](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/notimplemented.png "not implemented")
+
+
+###Wait, that makes total sense.  We've defined endpoints via a spec but have not implemented any logic around the behavior of the resources.  Let's tackle that next. 
+
+Kill your running node process within the terminal and locate the LoopBack application's model controller file **swagger-api-v-1.js**
+
+```
+ls -al ./server/models/
+
+```
+
+Within this folder, you'll notice two files:
+
+1. swagger-api-v-1.js : defines implementation logic for the generated stub APIs generated
+2. swagger-api-v-1.json : defines meta properties about the generated API model
+
+To expedite the logic implementation, a handy uncommented copy of a partially implemented controller file is provided within the ex3 parent folder named **swagger-api-v-1.js.uncommented**.  While in the project folder loopbackapp folder, execute the following command to replace the existing controller with this partial implementation:
+
+```
+cp ../swagger-api-v-1.js.uncommented server/models/swagger-api-v-1.js
+```
+
+You'll be prompted to overwrite.  Respond with **y** (yes).
+
+This partial implementation enables four (4) of the OpenAPI specification entries for 
+
+- **GET** and **POST** on  `/mac`
+- **GET** and **DELETE** `/mac/{macId}`
+ 
+If you're curious, we've also provided for comparison and inspection, a commented copy in the ex3 directory. (`../swagger-api-v-1.js.commented`).  
+
+Let's fire up our Loopback Application based on Swagger once again ... and try to populate it with some data.
+
+```
+node .
+```
+In a separate terminal window, issue the following 2 commands:
+
+```
+curl -X POST -H "Content-Type: application/json" -d "{\"organization\":\"IBM Corporation\",\"hex\":\"74:99:75\",\"base16\":\"749975\"}" "http://localhost:3000/api/api/v1/mac"
+curl -X POST -H "Content-Type: application/json" -d "{\"organization\":\"IBM Corporation\",\"hex\":\"00:09:6B\",\"base16\":\"00096B\"}" "http://localhost:3000/api/api/v1/mac"
+```
+
+If all went well, you should receive a response within your terminal from your node backend API server that looks similar to:
+
+![Successful Post](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/successfulpost.png "Successful Post")
+
+
+While it continues to run, let's now fetch a record associated with an ID=2.  Navigate your browser to [http://localhost:3000/api/api/v1/mac/2](http://localhost:3000/api/api/v1/mac/2)
+
+The result should look similar to this:
+
+![Successful Get](https://raw.githubusercontent.com/ragsns/apichol/master/images/ex3/successfulget.png "Successful Get")
+
+Awesome sauce!  Go ahead and kill the running node process within your terminal and change directories to exercise 5.
+
+###Summary of exericse and next steps
+
+You've now walked through the process of quickly creating a REST API Loopback Application shaped by an OpenAPI (swagger) specification.  You also learned how to modify the generated backend Loopback application to partially implement support for a couple of HTTP method types (GET and POST).
+<p>
+In [Exercise 4](../ex4) we'll learn how to easily create and populate a MySQL database service instance as a building block towards our ultimate goal of establishing API operations that support Create, Read, Update and Delete (CRUD) methods.

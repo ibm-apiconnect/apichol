@@ -1,0 +1,201 @@
+
+module.exports = function(SwaggerApi) {
+
+/**
+ * Retrieves one or more mac
+
+ * @callback {Function} callback Callback function
+ * @param {Error|string} err Error object
+ * @param {any} result Result object
+ */
+SwaggerApi.getMac = function(callback) {
+  // Replace the code below with your implementation.
+  // Please make sure the callback is invoked.
+  process.nextTick(function() {
+    //var err = new Error('Not implemented');
+    //callback(err);
+    //EXERCISE4: 
+    SwaggerApi.app.models.swagger_api_v1.find(callback);
+  });
+}
+
+/**
+ * Stores one or more mac
+
+ * @callback {Function} callback Callback function
+ * @param {Error|string} err Error object
+ * @param {any} result Result object
+ */
+SwaggerApi.postMac = function(swagger_api_v1, callback) {
+  // Replace the code below with your implementation.
+  // Please make sure the callback is invoked.
+  process.nextTick(function() {
+    //var err = new Error('Not implemented');
+    //callback(err);
+    //EXERCISE4: 
+    SwaggerApi.app.models.swagger_api_v1.create(swagger_api_v1,callback);
+  });
+}
+
+/**
+ * Deletes all mac
+
+ * @callback {Function} callback Callback function
+ * @param {Error|string} err Error object
+ * @param {any} result Result object
+ */
+SwaggerApi.deleteMac = function(callback) {
+  // Replace the code below with your implementation.
+  // Please make sure the callback is invoked.
+  process.nextTick(function() {
+    var err = new Error('Not implemented');
+    callback(err);
+  });
+  
+}
+
+/**
+ * Retrieves a Mac document
+ * @param {string} macId ID of the Mac
+ * @callback {Function} callback Callback function
+ * @param {Error|string} err Error object
+ * @param {any} result Result object
+ */
+SwaggerApi.getMacMacId = function(macId, callback) {
+  // Replace the code below with your implementation.
+  // Please make sure the callback is invoked.
+  process.nextTick(function() {
+    //var err = new Error('Not implemented');
+    //callback(err);
+    //EXERCISE4: 
+    SwaggerApi.app.models.swagger_api_v1.findById(macId, callback);
+  });
+  
+  /*
+  var err0 = new Error('Mac document does not exist');
+  err0.statusCode = 404;
+  return cb(err0);
+  */ 
+}
+
+/**
+ * Updates a Mac document
+ * @param {string} macId ID of the Mac
+ * @callback {Function} callback Callback function
+ * @param {Error|string} err Error object
+ * @param {any} result Result object
+ */
+SwaggerApi.patchMacMacId = function(macId, callback) {
+  // Replace the code below with your implementation.
+  // Please make sure the callback is invoked.
+  process.nextTick(function() {
+    var err = new Error('Not implemented');
+    callback(err);
+  });
+  
+}
+
+/**
+ * Deletes a Mac document
+ * @param {string} macId ID of the Mac
+ * @callback {Function} callback Callback function
+ * @param {Error|string} err Error object
+ * @param {any} result Result object
+ */
+SwaggerApi.deleteMacMacId = function(macId, callback) {
+  // Replace the code below with your implementation.
+  // Please make sure the callback is invoked.
+  process.nextTick(function() {
+    //var err = new Error('Not implemented');
+    //callback(err);
+    //EXERCISE4: 
+    SwaggerApi.app.models.swagger_api_v.deleteById(macId, callback);
+  });
+  
+}
+
+
+
+SwaggerApi.remoteMethod('getMac',
+  { isStatic: true,
+  accepts: [],
+  //returns: [],
+  /** EXERCISE 4
+   */
+  returns: {
+        "arg": "macs",
+        "type": "string"
+      },
+  http: { verb: 'get', path: '/mac' },
+  description: undefined }
+);
+
+SwaggerApi.remoteMethod('postMac',
+  { isStatic: true,
+  //accepts: [],
+  //returns: [],
+  /** EXERCISE 4 */
+    accepts: { arg: 'mac', type: 'object', http: { source: 'body' }},
+    returns: { arg: 'mac', type: 'string'},
+  http: { verb: 'post', path: '/mac' },
+  description: undefined }
+);
+
+SwaggerApi.remoteMethod('deleteMac',
+  { isStatic: true,
+  accepts: [],
+  returns: [],
+  http: { verb: 'delete', path: '/mac' },
+  description: undefined }
+);
+
+SwaggerApi.remoteMethod('getMacMacId',
+  { isStatic: true,
+  accepts: 
+   [ { arg: 'macId',
+       type: 'string',
+       description: 'ID of the Mac',
+       required: true,
+       http: { source: 'path' } } ],
+  //returns: [],
+  /** EXERCISE 4 */
+    returns: {
+        "arg": "mac",
+        "type": "string"
+    },
+  http: { verb: 'get', path: '/mac/:macId' },
+  description: undefined }
+);
+
+SwaggerApi.remoteMethod('patchMacMacId',
+  { isStatic: true,
+  accepts: 
+   [ { arg: 'macId',
+       type: 'string',
+       description: 'ID of the Mac',
+       required: true,
+       http: { source: 'path' } } ],
+  returns: [],
+  http: { verb: 'patch', path: '/mac/:macId' },
+  description: undefined }
+);
+
+SwaggerApi.remoteMethod('deleteMacMacId',
+  { isStatic: true,
+  accepts: 
+   [ { arg: 'macId',
+       type: 'string',
+       description: 'ID of the Mac',
+       required: true,
+       http: { source: 'path' } } ],
+  //returns: [],
+  /** EXERCISE 4 */
+  returns: {
+        "arg": "mac",
+        "type": "string"
+    },
+  http: { verb: 'delete', path: '/mac/:macId' },
+  description: undefined }
+);
+
+}
