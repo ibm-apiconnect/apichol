@@ -1,6 +1,6 @@
-#API Connect Hands-On Lab
+# API Connect Hands-On Lab
 
-##Prerequisites
+## Prerequisites
 
 Needless to say you'll need a laptop! It is recommended you use a Mac OS or a ubuntu desktop version laptop. Also make sure you install the following software prior to the session:
 
@@ -46,11 +46,11 @@ from [http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html](http:
 
 - Install API connect Developer kit - Install API connect Developer Kit after installing `npm` from [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect)
 
-###Sign up for a Bluemix account
+### Sign up for a Bluemix account
 
 - **Sign up for a new account on a Bluemix hosted instance** - It is recommended you create a new account from [https://console.ng.bluemix.net/] (https://console.ng.bluemix.net/) especially if you have not created this account in the last few days.
 
-##Lab software
+## Lab software
 The software including the instructions is available from [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol). Install the software locally on your laptop by running the followng command.
 
 ```
@@ -64,12 +64,12 @@ cd apichol
 git pull
 ```
 
-##Samples and General Directions
+## Samples and General Directions
 
 Each exercise is in a separate sub-directory. ***Ensure that you're in the sub-directory when you're working on a particular exercise and you're issuing the CLI commands from the subdirectory pertaining to the exercise.***
 
 
-##Recommended Exercises - User Related
+## Recommended Exercises - User Related
 
 It is recommended that you run through these exercises sequentially since they are progressive with some dependencies. Each exercise should take about 5-10 mins. to complete.
 
@@ -85,13 +85,13 @@ It is recommended that you run through these exercises sequentially since they a
 - Exercise 9: [Tour B - Generate a Developer Portal for your Weather APIs](exercises/ex9)
 
 
-##More Resources
+## More Resources
 
 Quick tour of API connect at [https://console.ng.bluemix.net/docs/services/apiconnect/index.html] (https://console.ng.bluemix.net/docs/services/apiconnect/index.html)
 
 API Connect Developer Toolkit at [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect)
 
 
-##Contact
+## Contact
 
 Please contact us at Twitter @ragss or @boilerupnc or @sai_vennam.
