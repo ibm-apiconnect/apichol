@@ -2,7 +2,7 @@
 
 ## Prerequisites
 
-Needless to say you'll need a laptop! It is recommended you use a Mac OS or a ubuntu desktop version laptop. Also make sure you install the following software prior to the session:
+Needless to say you'll need a laptop! It is recommended you use a macOS or a Ubuntu desktop version laptop. Also make sure you install the following software prior to the session:
 
 You can verify the versions of the required or pre-installed software by running the following commands and ensuring that you have the following versions (or higher).
 
@@ -36,22 +36,22 @@ The software can also be installed from
 
 - Git from [http://git-scm.com/downloads](http://git-scm.com/downloads) or "brew install git"
 
-- The `cf` CLI from [https://github.com/cloudfoundry/cli#downloads] (https://github.com/cloudfoundry/cli#downloads) - download the latest version that is appropriate for your laptop and follow the instructions in README.txt. 
+- The `cf` CLI from [https://github.com/cloudfoundry/cli#downloads](https://github.com/cloudfoundry/cli#downloads) - download the latest version that is appropriate for your laptop and follow the instructions in README.txt. 
 <p>
 OR 
 <p>
-from [http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html](http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html).
+from http://docs.cloudfoundry.org/devguide/installcf/install-go-cli.html.
 
-- Install npm - Install `nodejs` from [https://nodejs.org/en/download/](https://nodejs.org/en/download/) which also installs `npm`.
+- Install npm - Install `nodejs` from https://nodejs.org/en/download/ which also installs `npm`.
 
-- Install API connect Developer kit - Install API connect Developer Kit after installing `npm` from [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect)
+- Install API connect Developer kit - Install API connect Developer Kit after installing `npm` from https://www.npmjs.com/package/apiconnect
 
 ### Sign up for a Bluemix account
 
-- **Sign up for a new account on a Bluemix hosted instance** - It is recommended you create a new account from [https://console.ng.bluemix.net/] (https://console.ng.bluemix.net/) especially if you have not created this account in the last few days.
+- **Sign up for a new account on a Bluemix hosted instance** - It is recommended you create a new account from https://console.ng.bluemix.net/ especially if you have not created this account in the last few days.
 
 ## Lab software
-The software including the instructions is available from [https://github.com/ragsns/apichol] (https://github.com/ragsns/apichol). Install the software locally on your laptop by running the followng command.
+The software including the instructions is available from https://github.com/ragsns/apichol. Install the software locally on your laptop by running the followng command.
 
 ```
 git clone https://github.com/ragsns/apichol
@@ -87,11 +87,11 @@ It is recommended that you run through these exercises sequentially since they a
 
 ## More Resources
 
-Quick tour of API connect at [https://console.ng.bluemix.net/docs/services/apiconnect/index.html] (https://console.ng.bluemix.net/docs/services/apiconnect/index.html)
+Quick tour of API connect at https://console.ng.bluemix.net/docs/services/apiconnect/index.html
 
-API Connect Developer Toolkit at [https://www.npmjs.com/package/apiconnect] (https://www.npmjs.com/package/apiconnect)
+API Connect Developer Toolkit at https://www.npmjs.com/package/apiconnect
 
 
 ## Contact
 
-Please contact us at Twitter @ragss or @boilerupnc or @sai_vennam.
+Please contact us at Twitter [@ragss](https://twitter.com/ragss), [@boilerupnc](https://twitter.com/boilerupnc) or [@sai_vennam](https://twitter.com/sai_vennam).
